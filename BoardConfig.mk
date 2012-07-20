@@ -131,8 +131,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 TARGET_USES_PMEM := true
 
 # Define kernel config for inline building
-#TARGET_KERNEL_SOURCE := kernel/htc/leo
-#TARGET_KERNEL_CONFIG := htcleo_defconfig
+TARGET_KERNEL_CONFIG := htcleo_defconfig
 
 TARGET_PREBUILT_KERNEL := device/htc/leo/prebuilt/kernel
 
