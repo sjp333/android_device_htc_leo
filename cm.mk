@@ -16,6 +16,6 @@ PRODUCT_DEVICE := leo
 PRODUCT_NAME := cm_leo
 PRODUCT_CODENAME := leo
 
-# Set build fingerprint / ID / Prduct Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_ID=IMM76I BUILD_DISPLAY_ID=IMM76I BUILD_FINGERPRINT="google/htc_leo/leo:4.0.4/IMM76I/239410:user/release-keys" PRVIATE_BUILD_DESC="full_leo-user 4.0.4 IMM76I 239410 release-keys"
+# Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_ID=JRO03L BUILD_DISPLAY_ID=JRO03L BUILD_FINGERPRINT="google/htc_leo/leo:4.1.1/JRO03L/239410:user/release-keys" PRVIATE_BUILD_DESC="full_leo-user 4.1.1 JRO03L 239410 release-keys"
 

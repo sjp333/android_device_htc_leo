@@ -14,5 +14,4 @@
 # limitations under the License.
 #
 
-add_lunch_combo cm_leo-userdebug
-add_lunch_combo full_leo-userdebug
+add_lunch_combo rdt_leo-userdebug

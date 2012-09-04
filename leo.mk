@@ -31,11 +31,17 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 $(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
-PRODUCT_LOCALES := en
+PRODUCT_LOCALES := fr_BE
+
+# make fallback to mdpi possible
+# e.g. for maintaining crisp assets on 160dpi
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # General properties
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=240 \
+	ro.sf.lcd_density=192 \
+	rild.libpath=/system/lib/libhtc_ril.so \
 	ro.ril.ecc.HTC-ELL=92,93,94 \
 	ro.ril.ecc.HTC-WWE=999 \
 	ro.ril.enable.a52.HTC-ITA=1 \
@@ -47,57 +53,73 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.hsdpa.category=8 \
 	ro.ril.hsupa.category=5 \
 	ro.ril.hsxpa=2 \
-	ro.ril.enable.prl.recognition=1 \
-	ro.telephony.ril.v3=signalstrength \
 	ro.ril.def.agps.mode=2 \
+	ro.ril.disable.power.collapse=0 \
+	windowsmgr.max_events_per_sec=120 \
+	mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0 \
+	ro.media.dec.jpeg.memcap=20000000 \
+	ro.opengles.version=131072 \
+	ro.telephony.default_network=3 \
+	ro.ril.enable.prl.recognition=1 \
 	ro.ril.enable.managed.roaming=1 \
 	ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
 	ro.ril.emc.mode=2 \
-	mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0
+	ro.telephony.ril.v3=signalstrength,singlepdp,skipbrokendatacall \
+	ro.vold.umsdirtyratio=20
 	
+
+# Set usb type
 PRODUCT_PROPERTY_OVERRIDES += \
-	media.a1026.nsForVoiceRec=0 \
-	media.a1026.enableA1026=1 \
-	ro.media.dec.jpeg.memcap=20000000 \
-	ro.opengles.version=131072
-	
-# Default network type.
-# 0 => /* GSM/WCDMA (WCDMA preferred) */
-# 3 => /* GSM/WCDMA (auto mode, according to PRL) */
-PRODUCT_PROPERTY_OVERRIDES += ro.telephony.default_network=0
-	
+	persist.sys.usb.config=mass_storage \
+	persist.service.adb.enable=1 
+
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
-	ro.ril.disable.power.collapse=0 \
-	wifi.supplicant_scan_interval=60
+	wifi.supplicant_scan_interval=45
 
-# Improve touch responsiveness
+
+# Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-	Debug.performance.tuning=1 \
-	Video.accelerate.hw=1
+	com.qc.hardware=1 \
+	dev.pm.dyn_samplingrate=1 \
+	ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-# Fix black screen after call
+
+
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.lge.proximity.delay=10 \
-	mot.proximity.delay=10
+	debug.sf.hw=1 \
+	debug.composition.type=mdp \
+	hwui.render_dirty_regions=false \
+	hwui.disable_vsync=true \
+	debug.sf.no_hw_vsync=1 \
+	hwui.print_config=choice \
+	debug.enabletr=false
 
-PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.lockprof.threshold=500 \
+	dalvik.vm.dexopt-flags=m=y \
+	dalvik.vm.checkjni=false \
+	dalvik.vm.heapsize=128m \
+	dalvik.vm.heapgrowthlimit=48m \
+	dalvik.vm.heapstartsize=5m \
+	dalvik.vm.dexopt-data-only=1 \
+	dalvik.vm.verify-bytecode=false \
+
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+
+
 
 # media config xml file
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
+
+# Configs
+PRODUCT_COPY_FILES += \
+    device/htc/qsd8k-common/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/qsd8k-common/audio_policy.conf:system/etc/audio_policy.conf
+
 
 # This file is used to install the enable RMNET and corresponding modules which dont get activated by normal module script, mount cache so that downloads work correctly
 PRODUCT_COPY_FILES += \
@@ -106,107 +128,50 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/init.d/10mic_level:system/etc/init.d/10mic_level \
 	device/htc/leo/prebuilt/init.d/97ppp:system/etc/init.d/97ppp
 
-# Sensors
-#PRODUCT_PACKAGES += \
-#	sensors.htcleo \
-#	lights.htcleo 
-#	gps.htcleo
+
 
 # Audio
 PRODUCT_PACKAGES += \
+	audio.usb.default \
 	audio.a2dp.default \
 	audio.primary.qsd8k \
-	audio_policy.qsd8k \
-	libaudioutils
+	audio_policy.qsd8k
+
+# Sensors
+PRODUCT_PACKAGES += \
+	sensors.htcleo \
+	lights.htcleo \
+ 	gps.htcleo
 
 # GPU
 PRODUCT_PACKAGES += \
 	copybit.qsd8k \
 	gralloc.qsd8k \
-	hwcomposer.default \
-	hwcomposer.qsd8k \
-	liboverlay \
-	libgenlock \
-	libmemalloc \
-	libtilerenderer \
-	libQcomUI
+	hwcomposer.qsd8k 
 
 # Omx
 PRODUCT_PACKAGES += \
-    libmm-omxcore \
 	libOmxCore \
 	libOmxVdec \
-	libOmxVidEnc \
 	libstagefrighthw
-	
-# Omx cli test apps
-#PRODUCT_PACKAGES += \
-#    liblasic \
-#    mm-vdec-omx-test \
-#    ast-mm-vdec-omx-test \
-#    mm-venc-omx-test
 
 # htcleo misc
 PRODUCT_PACKAGES += \
+	libgps \
 	leo-reference-ril \
 	libhtc_ril_wrapper
-#    camera.qsd8k \
-#	libgps \
 
+# Filesystem management tools
 PRODUCT_PACKAGES += \
-	Stk \
-	Camera \
-	Torch \
-	librs_jni \
-	Launcher2
-	
-# strict mode
-ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
-	
-# make fallback to mdpi possible
-# e.g. for maintaining crisp assets on 160dpi
-PRODUCT_AAPT_CONFIG := normal hdpi mdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi mdpi
+	make_ext4fs \
+	setup_fs
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	debug.sf.hw=1 \
-	debug.composition.type=mdp \
-	dalvik.vm.dexopt-flags=m=y \
-	dalvik.vm.checkjni=false \
-	dalvik.vm.heapsize=128m \
-	dalvik.vm.heapgrowthlimit=48m \
-	dalvik.vm.heapstartsize=5m \
-	dalvik.vm.dexopt-data-only=1 \
-	dalvik.vm.verify-bytecode=false \
-	dalvik.vm.lockprof.threshold=500 \
-	windowsmgr.max_events_per_sec=120
-
-# Force launcher/apps into memory
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.HOME_APP_ADJ=1 \
-	ro.PERCEPTIBLE_APP_ADJ=0
+# Misc
+PRODUCT_PACKAGES += \
+	com.android.future.usb.accessory
 	
-# HardwareRenderer properties
-# dirty_regions: "false" to disable partial invalidates, override if enabletr=true
-PRODUCT_PROPERTY_OVERRIDES += \
-	hwui.render_dirty_regions=false \
-	hwui.disable_vsync=true \
-	hwui.print_config=choice \
-	debug.enabletr=false
-	
-# Force 2 buffers - gralloc defaults to 3 and we only have 2
-PRODUCT_PROPERTY_OVERRIDES += \
-	debug.gr.numframebuffers=2
 
-# disable jni check	
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.kernel.android.checkjni=0 \
-	dalvik.vm.checkjni=0
 
-# Set usb type
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mass_storage \
-	persist.service.adb.enable=1
 	
 PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
@@ -228,12 +193,32 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/prebuilt/ppp/ppp:system/ppp \
 	device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
 
+
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/gps.conf:system/etc/gps.conf
+	device/htc/leo/prebuilt/gps_eu.conf:system/etc/gps.conf
 
 # stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
+# Firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
+# Init post-boot script
+PRODUCT_COPY_FILES += \
+    device/htc/leo/prebuilt/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh 
+
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distict.xml \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 
 PRODUCT_NAME := htc_leo
