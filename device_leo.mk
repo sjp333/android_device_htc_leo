@@ -40,14 +40,14 @@ PRODUCT_PACKAGES += \
 
 # Vold
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/vold.fstab:system/etc/vold.fstab
+	device/htc/leo/vold.fstab:system/etc/vold.fstab
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/init.htcleo.rc:root/init.htcleo.rc \
-	device/htc/leo/prebuilt/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
-	device/htc/leo/prebuilt/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
-	device/htc/leo/prebuilt/logo.rle:root/logo.rle \
+	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
+	device/htc/leo/ramdisk/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
+	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
+	device/htc/leo/ramdisk/logo.rle:root/logo.rle \
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
@@ -56,45 +56,36 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-     device/htc/leo/prebuilt/gps.conf:system/etc/gps.conf
+     device/htc/leo/configs/gps.conf:system/etc/gps.conf
 
 # Add the postrecoveryboot.sh so that the recovery.fstab can be changed
 PRODUCT_COPY_FILES += \
-    device/htc/leo/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+    device/htc/leo/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
-
-# Configs
-PRODUCT_COPY_FILES += \
-    device/htc/qsd8k-common/media_codecs.xml:system/etc/media_codecs.xml \
-    device/htc/qsd8k-common/audio_policy.conf:system/etc/audio_policy.conf
-
+	device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Scripts
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/init.d/01modules:system/etc/init.d/01modules \
-	device/htc/leo/prebuilt/init.d/02usb_tethering:system/etc/init.d/02usb_tethering \
-	device/htc/leo/prebuilt/init.d/10mic_level:system/etc/init.d/10mic_level \
-	device/htc/leo/prebuilt/init.d/97ppp:system/etc/init.d/97ppp
+	device/htc/leo/scripts/init.d/01modules:system/etc/init.d/01modules \
+	device/htc/leo/scripts/init.d/02usb_tethering:system/etc/init.d/02usb_tethering \
+	device/htc/leo/scripts/init.d/10mic_level:system/etc/init.d/10mic_level \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
-	device/htc/leo/prebuilt/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
-	device/htc/leo/prebuilt/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl
-
-# Touchscreen
-PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
+	device/htc/leo/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
+	device/htc/leo/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
+	device/htc/leo/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
+	device/htc/leo/keylayout/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
 
 # PPP files
 PRODUCT_COPY_FILES += \
-	device/htc/leo/prebuilt/ppp/ip-up:system/etc/ppp/ip-up \
-	device/htc/leo/prebuilt/ppp/ip-down:system/etc/ppp/ip-down \
-	device/htc/leo/prebuilt/ppp/ppp:system/ppp \
-	device/htc/leo/prebuilt/ppp/options:system/etc/ppp/options
+	device/htc/leo/clk/etc/ppp/ip-up:system/etc/ppp/ip-up \
+	device/htc/leo/clk/etc/ppp/ip-down:system/etc/ppp/ip-down \
+	device/htc/leo/clk/etc/ppp/ppp:system/ppp \
+	device/htc/leo/clk/etc/ppp/options:system/etc/ppp/options \
+	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/97ppp
 
 # Permissions
 PRODUCT_COPY_FILES += \
