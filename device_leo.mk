@@ -87,6 +87,14 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/clk/etc/ppp/options:system/etc/ppp/options \
 	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/97ppp
 
+# Kernel modules
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+PRODUCT_COPY_FILES += $(shell \
+    find device/htc/ruby/modules -name '*.ko' \
+    | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
+    | tr '\n' ' ')
+endif
+
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml 
