@@ -7,8 +7,9 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Include GSM stuff
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
+TARGET_BOOTANIMATION_NAME := 480
 
-## Device identifier. This must come after all inclusions
+# Device identifier. This must come after all inclusions
 PRODUCT_MODEL := HTC HD2
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_BRAND := htc
