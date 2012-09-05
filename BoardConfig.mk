@@ -27,90 +27,30 @@ USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
 -include vendor/htc/leo/BoardConfigVendor.mk
+# inherit common defines for all qsd8k devices
+include device/htc/qsd8k-common/BoardConfigCommon.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := htcleo
-TARGET_NO_BOOTLOADER := true
-
-TARGET_BOARD_PLATFORM := qsd8k
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-
-
-
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_ARCH_VARIANT_FPU := neon
-ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
 
 # FPU compilation flags
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 
-# Call headers from msm-3.0: needed to build libs in hardware/qcom/display
-TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include
-
-# Wifi related defines
-
-# Wifi
-WIFI_BAND := 802_11_ABG
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE := bcmdhd
-WIFI_DRIVER_FW_PATH_STA := "/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P := "/vendor/firmware/fw_bcmdhd_p2p.bin"
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
-
-
-BOARD_USES_GENERIC_AUDIO := false
-COMMON_GLOBAL_CFLAGS += -DLEGACY_AUDIO_COMPAT
-
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
 BOARD_KERNEL_BASE := 0x11800000
 BOARD_KERNEL_NEW_PPPOX := true
 
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-
-
-
-BOARD_VENDOR_USE_AKMD := akm8973
-
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-
-
-
-# Hardware rendering
-BOARD_EGL_CFG := device/htc/leo/prebuilt/egl.cfg
-USE_OPENGL_RENDERER := true
-# We only have 2 buffers
-TARGET_DISABLE_TRIPLE_BUFFERING := true
 # Legacy
 TARGET_USES_MDP3 := true
 TARGET_USES_PMEM := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
-# Hack for hwc
-COMMON_GLOBAL_CFLAGS += -DTARGET_8x50
 
 # Hacks for legacy mdp drivers
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_ADRENO_AVOID_EXTERNAL_TEXTURE := true
 
-
-
-COMMON_GLOBAL_CFLAGS += -DRIL_VERSION_2_SUPPORT
-
-
-
-BOARD_USES_QCOM_LIBS := true
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
 
 TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
@@ -130,9 +70,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0de00000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c800000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-
-
-
 TARGET_PREBUILT_KERNEL := device/htc/leo/prebuilt/kernel
 
 # to enable the GPS HAL
@@ -146,9 +83,3 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 # Hacks
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 BOARD_USE_LEGACY_TRACKPAD := true
-
-
-# Webkit
-TARGET_FORCE_CPU_UPLOAD := true
-
-
