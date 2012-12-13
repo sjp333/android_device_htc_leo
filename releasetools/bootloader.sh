@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# Copyright (C) 2012 the cmhtcleo team
-# Edited by Karting06
+# Copyright (C) 2012 Sportsstar89
 #
 
 echo "updater-script: Making Compatible Update script"
@@ -19,7 +18,7 @@ echo 'set_perm(0, 0, 755, "/tmp/checksys.sh");' >> updater-script
 echo 'run_program("/tmp/checksys.sh");' >> updater-script
 echo 'if file_getprop("/tmp/nfo.prop","clk") == "true" ' >> updater-script
 echo 'then' >> updater-script
-echo '  ui_print("cLK, flash de PPP pour connexion data");' >> updater-script
+echo '  ui_print("cLK, Good data connection");' >> updater-script
 echo '  package_extract_dir("kernel/clk-ppp-patch", "/system");' >> updater-script
 echo '	set_perm(0, 0, 0777, "/system/etc/init.d/97ppp");' >> updater-script
 echo '	set_perm_recursive(0, 2000, 0755, 0750, "/system/etc/init.d");' >> updater-script
@@ -27,7 +26,7 @@ echo '	set_perm(0, 0, 0755, "/system/etc/init.d");' >> updater-script
 echo '	set_perm_recursive(0, 1001, 0755, 0775, "/system/etc/ppp");' >> updater-script
 echo '	set_perm(0, 0, 04755, "/system/bin/pppd");' >> updater-script
 echo 'else' >> updater-script
-echo '  ui_print("MAGLDR, rmnet pour connexion data");' >> updater-script
+echo '  ui_print("MAGLDR, rmnet bad data connection");' >> updater-script
 echo '  delete("/system/ppp");' >> updater-script
 echo '  delete("/system/etc/init.d/97ppp");' >> updater-script
 echo 'endif;' >> updater-script

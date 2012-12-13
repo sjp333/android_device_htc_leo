@@ -152,7 +152,7 @@ rm -rf $REPACK/ota/recovery
 
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.rdt\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
-OUTFILE=$OUT/rDevTeam-leo-$MODVERSION.zip
+OUTFILE=$OUT/Cyanogenmod-leo-$MODVERSION.zip
 echo MODVERSION: $MODVERSION
 
 # Pack it up and sign
