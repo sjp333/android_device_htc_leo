@@ -30,6 +30,11 @@ PRODUCT_PACKAGES += \
 	sensors.htcleo \
 	lights.htcleo 
 
+# Hosapd
+PRODUCT_PACKAGES += \
+    hostapd \
+    hostapd.conf
+
 # GPS
 PRODUCT_PACKAGES += \
  	gps.htcleo
