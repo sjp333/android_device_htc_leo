@@ -23,10 +23,8 @@
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
-USE_CAMERA_STUB := true
+USE_CAMERA_STUB := false
 
-# inherit from the proprietary version
--include vendor/htc/leo/BoardConfigVendor.mk
 # inherit common defines for all qsd8k devices
 include device/htc/qsd8k-common/BoardConfigCommon.mk
 
@@ -45,6 +43,17 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
 BOARD_KERNEL_BASE := 0x11800000
 BOARD_KERNEL_NEW_PPPOX := true
 
+# Wifi related defines
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
+BOARD_WLAN_DEVICE           := bcm4329
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
+WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4329.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4329_apsta.bin"
+WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
+WIFI_DRIVER_MODULE_NAME     := "bcm4329"
+
 # Legacy
 TARGET_USES_MDP3 := true
 TARGET_USES_PMEM := true
@@ -53,7 +62,7 @@ TARGET_USES_PMEM := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_ADRENO_AVOID_EXTERNAL_TEXTURE := true
 
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
 
 TARGET_CUSTOM_RELEASETOOL := device/htc/leo/releasetools/squisher
 
@@ -76,8 +85,6 @@ TARGET_PREBUILT_KERNEL := device/htc/leo/prebuilt/kernel
 
 # to enable the GPS HAL
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := leo
-# AMSS version to use for GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
