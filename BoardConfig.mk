@@ -43,9 +43,6 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
 BOARD_KERNEL_BASE := 0x11800000
 BOARD_KERNEL_NEW_PPPOX := true
 
-# Wifi related defines
-WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
-
 # Legacy
 TARGET_USES_MDP3 := true
 TARGET_USES_PMEM := true
