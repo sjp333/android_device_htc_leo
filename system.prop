@@ -11,7 +11,7 @@ com.qc.hardware=1
 ro.ril.disable.power.collapse=0
 mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0
 ro.telephony.default_network=3
-ro.telephony.ril.v3=signalstrength,singlepdp,skipbrokendatacall
+ro.telephony.ril.v3=signalstrength,singlepdp,skipbrokendatacall,apptypesim
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
 # Wi-Fi
