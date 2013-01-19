@@ -47,6 +47,9 @@ on boot
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
 
+    # ===============================
+    # begin of permissions for htcleo
+    # ===============================
     # flashlight
     chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
     chmod 0660          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
@@ -142,6 +145,10 @@ on boot
     setprop net.dns1 8.8.8.8
     setprop net.dns2 8.8.4.4
 
+    # =============================
+    # end of permissions for htcleo
+    # =============================
+
     # enable the GPS
     setprop ro.ril.def.agps.mode 2
 
@@ -184,47 +191,12 @@ on boot
 
     symlink /system/vendor/firmware/fw_bcmdhd.bin /vendor/firmware/fw_bcmdhd.bin
     symlink /system/vendor/firmware/fw_bcmdhd_apsta.bin /vendor/firmware/fw_bcmdhd_apsta.bin
-
-# Services Start here
     
+# compass/accelerometer daemon
 service akmd /system/bin/akmd
     class main
     user compass
     group compass misc input
-
-service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 115 272
-
-service dhcpcd_bnep0 /system/bin/dhcpcd -aABKL
-    class main
-    disabled
-    oneshot
-
-service dhcpcd_wlan0 /system/bin/dhcpcd -aABKL
-    class main
-    disabled
-    oneshot
-
-service dspcrashd /system/bin/dspcrashd
-
-service iprenew_bnep0 /system/bin/dhcpcd -n
-    class main
-    disabled
-    oneshot
-
-service iprenew_wlan0 /system/bin/dhcpcd -n
-    class main
-    disabled
-    oneshot
-
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -wlan0 -Dn180211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
@@ -234,8 +206,51 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
+service dhcpcd_wlan0 /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_bnep0 /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_bnep0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+# bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
+service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+    keycodes 115 272
+
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
+    --baudrate 3000000 --patchram /etc/firmware/bcm4329.hcd /dev/ttyHS0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    
+# Wifi - Tethering
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
+service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+
 on property:dev.bootcomplete=1
-    start qcom-post-boot
+    start qcom-post-boot    
+
+service dspcrashd /system/bin/dspcrashd

@@ -28,7 +28,7 @@ USE_CAMERA_STUB := false
 # inherit common defines for all qsd8k devices
 include device/htc/qsd8k-common/BoardConfigCommon.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := leo
+TARGET_BOOTLOADER_BOARD_NAME := htcleo
 TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_VFP := true

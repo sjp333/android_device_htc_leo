@@ -27,12 +27,17 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 
 # Sensors & Lights
 PRODUCT_PACKAGES += \
-	sensors.leo \
-	lights.leo 
+	sensors.htcleo \
+	lights.htcleo 
+
+# Hosapd
+PRODUCT_PACKAGES += \
+    hostapd \
+    hostapd.conf
 
 # GPS
 PRODUCT_PACKAGES += \
- 	gps.leo
+ 	gps.htcleo
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -46,9 +51,9 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-	device/htc/leo/ramdisk/init.leo.rc:root/init.leo.rc \
-	device/htc/leo/ramdisk/init.leo.usb.rc:root/init.leo.usb.rc \
-	device/htc/leo/ramdisk/ueventd.leo.rc:root/ueventd.leo.rc \
+	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
+	device/htc/leo/ramdisk/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
+	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
 	device/htc/leo/ramdisk/logo.rle:root/logo.rle \
 
 # GSM APN list
@@ -76,10 +81,10 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-	device/htc/leo/keylayout/leo-keypad.kl:system/usr/keylayout/leo-keypad.kl \
-	device/htc/leo/keylayout/leo-keypad.kcm:system/usr/keychars/leo-keypad.kcm \
+	device/htc/leo/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
+	device/htc/leo/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
 	device/htc/leo/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
-	device/htc/leo/keylayout/leo-touchscreen.idc:system/usr/idc/leo-touchscreen.idc
+	device/htc/leo/keylayout/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
 
 # PPP files
 PRODUCT_COPY_FILES += \
