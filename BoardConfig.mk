@@ -33,7 +33,7 @@ TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_VFP := true
 TARGET_KERNEL_SOURCE := kernel/htc/leo
-TARGET_KERNEL_CONFIG := leo_defconfig
+TARGET_KERNEL_CONFIG := htcleo_defconfig
 
 # FPU compilation flags
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
