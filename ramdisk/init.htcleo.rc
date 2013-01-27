@@ -8,8 +8,8 @@ on early-init
     symlink /storage/sdcard0 /mnt/sdcard    
 
 on fs
-    mount yaffs2 mtd@system /system remount noatime nodiratime
-    mount yaffs2 mtd@userdata /data remount nosuid nodev noatime nodiratime
+    # Mount all partitions
+    mount_all /fstab.htcleo
 
 on post-fs-data
     mkdir /data/misc 01771 system misc
