@@ -49,6 +49,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	device/htc/leo/vold.fstab:system/etc/vold.fstab
 
+# Wi-Fi Firmware
+$(call inherit-product, hardware/broadcom/wlan/bcm4329/firmware/Android.mk)
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
 	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
@@ -95,7 +98,7 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/97ppp
 
 # Kernel modules
-ifeq ($(TARGET_PREBUILT_KERNEL),)
+ifeq ($(TARGET_PREBUILT_KERNEL_USED)true,)
 PRODUCT_COPY_FILES += $(shell \
     find device/htc/leo/modules -name '*.ko' \
     | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
@@ -111,6 +114,8 @@ PRODUCT_LOCALES += hdpi mdpi
 
 # QSD8K Commomn Stuff
 $(call inherit-product, device/htc/qsd8k-common/qsd8k.mk)
+
+# Vendor
 $(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
 
 # Discard inherited values and use our own instead.
