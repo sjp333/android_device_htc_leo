@@ -32,6 +32,9 @@ TARGET_BOOTLOADER_BOARD_NAME := htcleo
 TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_VFP := true
+
+# Kernel
+TARGET_PREBUILT_KERNEL := device/htc/leo/prebuilt/kernel
 TARGET_KERNEL_SOURCE := kernel/htc/leo
 TARGET_KERNEL_CONFIG := htcleo_defconfig
 
@@ -70,7 +73,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 272629760
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c800000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/htc/leo/prebuilt/kernel
+
 
 # to enable the GPS HAL
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := leo
@@ -81,3 +84,6 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 # Hacks
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
 BOARD_USE_LEGACY_TRACKPAD := true
+
+# Recovery
+TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
