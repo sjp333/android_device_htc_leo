@@ -90,7 +90,7 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/97ppp
 
 # Kernel modules
-ifeq ($(TARGET_PREBUILT_KERNEL),)
+ifeq ($(TARGET_PREBUILT_KERNEL_USED)true,)
 PRODUCT_COPY_FILES += $(shell \
     find device/htc/leo/modules -name '*.ko' \
     | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
