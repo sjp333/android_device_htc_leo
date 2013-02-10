@@ -30,11 +30,6 @@ PRODUCT_PACKAGES += \
 	sensors.htcleo \
 	lights.htcleo 
 
-# Hosapd
-PRODUCT_PACKAGES += \
-    hostapd \
-    hostapd.conf
-
 # GPS
 PRODUCT_PACKAGES += \
  	gps.htcleo
@@ -48,9 +43,6 @@ PRODUCT_PACKAGES += \
 # Vold
 PRODUCT_COPY_FILES += \
 	device/htc/leo/vold.fstab:system/etc/vold.fstab
-
-# Wi-Fi Firmware
-$(call inherit-product, hardware/broadcom/wlan/bcm4329/firmware/Android.mk)
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -116,7 +108,7 @@ PRODUCT_LOCALES += hdpi mdpi
 $(call inherit-product, device/htc/qsd8k-common/qsd8k.mk)
 
 # Vendor
-$(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
+$(call inherit-product, vendor/htc/leo/leo-vendor.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_leo

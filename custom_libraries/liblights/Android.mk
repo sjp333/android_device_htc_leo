@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2009 The Android Open-Source Project
+# Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,20 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# One line per configuration, of the form:
-#
-# D I TAG
-#
-# D: display (0: default)
-# I: implementation (0: software, 1: hardware)
-# TAG: a unique tag
-#
-# The library name loaded by EGL is constructed as (in that order):
-#
-# /system/lib/egl/libGLES_$TAG.so
-# /system/lib/egl/lib{EGL|GLESv1_CM|GLESv2}_$TAG.so
-#
+LOCAL_PATH:= $(call my-dir)
 
-0 0 android
-0 1 adreno200
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),htcleo)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := lights.$(TARGET_BOOTLOADER_BOARD_NAME)
+
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_SRC_FILES := lights.c
+LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_PRELINK_MODULE := false
+
+include $(BUILD_SHARED_LIBRARY)
+
+endif # TARGET_BOOTLOADER_NAME
