@@ -12,6 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),htcleo)
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+LOCAL_PATH:= $(call my-dir)
+subdir_makefiles := \
+    $(LOCAL_PATH)/custom_libraries/liblights/Android.mk \
+    $(LOCAL_PATH)/custom_libraries/libreference-ril/Android.mk \
+    $(LOCAL_PATH)/custom_libraries/libsensors/Android.mk        
+
+include $(subdir_makefiles)
+
+endif
