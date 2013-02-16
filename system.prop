@@ -18,7 +18,6 @@ wifi.interface=wlan0
 wifi.supplicant_scan_interval=45
 
 # Graphics 
-debug.enabletr=false
 ro.media.dec.jpeg.memcap=20000000 
 ro.opengles.version=131072
 
