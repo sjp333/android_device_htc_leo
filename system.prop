@@ -24,7 +24,6 @@ ro.opengles.version=131072
 # USB
 ro.vold.umsdirtyratio=20
 persist.sys.usb.config=mass_storage,adb
-persist.service.adb.enable=1
 
 # Dalvik
 dalvik.vm.lockprof.threshold=500 
