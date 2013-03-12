@@ -87,8 +87,3 @@ BOARD_USE_LEGACY_TRACKPAD := true
 
 # Recovery
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/leo/prebuilt/recovery_kernel
-
-# TWRP
-DEVICE_RESOLUTION := 480x800
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
