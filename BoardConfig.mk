@@ -53,8 +53,6 @@ TARGET_USES_PMEM := true
 # Hacks for legacy mdp drivers
 BOARD_ADRENO_AVOID_EXTERNAL_TEXTURE := true
 
-TARGET_QCOM_GPS_VARIANT :=
-
 # Blank unused Wi-Fi configs
 WIFI_BAND                   :=
 BOARD_HOSTAPD_DRIVER        :=
@@ -93,6 +91,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # to enable the GPS HAL
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := leo
+TARGET_QCOM_GPS_VARIANT :=
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
