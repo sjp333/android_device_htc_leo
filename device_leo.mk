@@ -61,8 +61,8 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Fix graphic crash
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.hw=0
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    debug.sf.hw=0
 
 # Scripts
 PRODUCT_COPY_FILES += \
