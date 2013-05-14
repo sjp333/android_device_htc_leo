@@ -1,7 +1,5 @@
 #!/system/bin/sh
 
-if [ -f /system/ppp ]
-then
   echo "preparing to use ppp for data connections..."
   chown 1001.1001 /dev/smd1
   touch /etc/ppp/active
@@ -16,5 +14,3 @@ then
   chown 0.0 /system/bin/pppd
   chmod 4755 /system/bin/pppd
   #/system/bin/pppd /dev/smd1 defaultroute
-fi
-
