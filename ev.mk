@@ -16,7 +16,6 @@ PRODUCT_MANUFACTURER := HTC
 PRODUCT_BRAND := htc
 PRODUCT_DEVICE := leo
 PRODUCT_NAME := ev_leo
-PRODUCT_CODENAME := leo
 
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_FINGERPRINT=google/htc_leo/leo:4.2.2/JDQ39/573038:user/release-keys PRIVATE_BUILD_DESC="leo-user 4.2.2 JDQ39 573038 release-keys"
@@ -24,7 +23,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=leo BUILD_FINGERPRINT=google/htc_le
 #
 # Set up the product codename, build version & MOTD.
 #
-PRODUCT_CODENAME := King
+PRODUCT_CODENAME := duco
 PRODUCT_VERSION_DEVICE_SPECIFIC := a1
 
 PRODUCT_MOTD :="\n\n\n--------------------MESSAGE---------------------\nThank you for choosing Evervolv for your HTC HD2\nPlease visit us at \#evervolv on irc.freenode.net\nFollow @preludedrew for the latest Evervolv updates\nGet the latest rom at evervolv.com\n------------------------------------------------\n"
