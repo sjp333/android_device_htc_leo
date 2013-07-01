@@ -42,6 +42,7 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/ramdisk/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
 	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
 	device/htc/leo/ramdisk/logo.rle:root/logo.rle \
+	device/htc/leo/remdisk/fstab.htcleo:root/fstab.htcleo
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
