@@ -32,10 +32,6 @@ PRODUCT_PACKAGES += \
  	gps.htcleo \
 	leo-reference-ril
 
-# Vold
-PRODUCT_COPY_FILES += \
-	device/htc/leo/vold.fstab:system/etc/vold.fstab
-
 # Ramdisk
 PRODUCT_COPY_FILES += \
 	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
