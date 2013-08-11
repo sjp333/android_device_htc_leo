@@ -49,18 +49,6 @@ BOARD_KERNEL_NEW_PPPOX := true
 # Legacy
 BOARD_USE_LEGACY_TRACKPAD := true
 
-# Wi-Fi
-WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan firmware_path=/vendor/firmware/fw_bcmdhd.bin nvram_path=/proc/calibration"
-
-# # cat /proc/mtd
-# dev:    size   erasesize  name
-#mtd0: 00100000 00020000 "misc"
-#mtd1: 00500000 00020000 "recovery"
-#mtd2: 00500000 00020000 "boot"
-#mtd3: 0aa00000 00020000 "system"
-#mtd4: 02c00000 00020000 "cache"
-#mtd5: 0d900000 00020000 "userdata"
-
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x9C4B40
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 9999999999
@@ -80,22 +68,3 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/f
 # Recovery
 TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo
 RECOVERY_FSTAB_VERSION := 2
-
-# Blank unused Wi-Fi configs
-WIFI_BAND                   :=
-BOARD_HOSTAPD_DRIVER        :=
-BOARD_HOSTAPD_PRIVATE_LIB   :=
-WIFI_DRIVER_FW_PATH_P2P     :=
-WIFI_DRIVER_FW_PATH_PARAM   :=
-BOARD_LEGACY_NL80211_STA_EVENTS := false
-
-# Wi-Fi Configs
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-WPA_SUPPLICANT_VERSION      := VER_0_8_X
-BOARD_WLAN_DEVICE           := bcm4329
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4329_apsta.bin"
-WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
-WIFI_DRIVER_MODULE_NAME     := "bcm4329"
