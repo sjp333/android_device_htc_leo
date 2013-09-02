@@ -29,7 +29,7 @@ USE_CAMERA_STUB := false
 include device/htc/qsd8k-common/BoardConfigCommon.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := htcleo
-TARGET_ARCH_VARIANT_CPU := cortex-a8
+TARGET_ARCH_VARIANT_CPU := scorpion
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_VFP := true
 
