@@ -42,8 +42,8 @@ PRODUCT_COPY_FILES += \
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
+    vendor/omni/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
+   # vendor/omni/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -134,8 +134,8 @@ PRODUCT_PACKAGES += \
     audio_policy.qsd8k
 
 # Camera
-PRODUCT_PACKAGES += \
-    camera.qsd8k
+# PRODUCT_PACKAGES += \
+  #  camera.qsd8k
 
 # Display
 PRODUCT_PACKAGES += \
@@ -168,9 +168,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.composition.type=mdp \
-    ro.bq.gpu_to_cpu_unsupported=1 \
+    ro.zygote.disable_gl_preload=true \
     debug.gr.numframebuffers=2 \
-    debug.egl.recordable.rgba8888=1
+ # Low Mem
+    ro.config.low_ram=true \
+# Disable jit
+    dalvik.vm.jit.codecachesize=0
+
+    
 
 #
 # Dalvik Properties

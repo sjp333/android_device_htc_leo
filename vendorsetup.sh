@@ -14,6 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo carbon_leo-userdebug
-add_lunch_combo ev_leo-eng
-add_lunch_combo cm_leo-userdebug
+add_lunch_combo omni_leo-userdebug
+
