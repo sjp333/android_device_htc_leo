@@ -14,8 +14,7 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-ifeq ($(BOARD_VENDOR),htc)
-ifeq ($(TARGET_BOARD_PLATFORM),qsd8k)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),htcleo)
 
 include $(CLEAR_VARS)
 
@@ -31,5 +30,4 @@ LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
-endif
+endif # TARGET_BOOTLOADER_NAME

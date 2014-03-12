@@ -42,7 +42,7 @@ static const struct sensor_t sSensorList[] = {
         { "AK8973 Orientation sensor",
                 "Asahi Kasei",
                 1, SENSORS_HANDLE_BASE+ID_O,
-                SENSOR_TYPE_ORIENTATION, 360.0f, 1.0f, 7.0f, 0, 0, 0, { } },
+                SENSOR_TYPE_ORIENTATION, 360.0f, 1.0f, 7.0f, 0, 0, 0,  { } },
         { "CM3602 Proximity sensor",
                 "Capella Microsystems",
                 1, SENSORS_HANDLE_BASE+ID_P,

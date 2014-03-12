@@ -42,16 +42,15 @@ PRODUCT_COPY_FILES += \
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
-    vendor/omni/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
-   # vendor/omni/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
+        vendor/omni/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # GPS
 PRODUCT_COPY_FILES += \
-     device/htc/leo/configs/gps.conf:system/etc/gps.conf
+        device/htc/leo/configs/gps.conf:system/etc/gps.conf
 
 # Add the postrecoveryboot.sh so that the recovery.fstab can be changed
 PRODUCT_COPY_FILES += \
-    device/htc/leo/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+        device/htc/leo/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
 # media config xml file
 PRODUCT_COPY_FILES += \
@@ -64,6 +63,7 @@ PRODUCT_COPY_FILES += \
 # Scripts
 PRODUCT_COPY_FILES += \
 	device/htc/leo/scripts/init.d/01modules:system/etc/init.d/01modules \
+	device/htc/leo/scripts/init.d/02usb_tethering:system/etc/init.d/02usb_tethering \
 	device/htc/leo/scripts/init.d/10mic_level:system/etc/init.d/10mic_level 
 
 # Keylayouts
@@ -134,8 +134,8 @@ PRODUCT_PACKAGES += \
     audio_policy.qsd8k
 
 # Camera
-# PRODUCT_PACKAGES += \
-  #  camera.qsd8k
+PRODUCT_PACKAGES += \
+    camera.qsd8k
 
 # Display
 PRODUCT_PACKAGES += \
@@ -168,14 +168,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.composition.type=mdp \
-    ro.zygote.disable_gl_preload=true \
-    debug.gr.numframebuffers=2 \
- # Low Mem
-    ro.config.low_ram=true \
-# Disable jit
-    dalvik.vm.jit.codecachesize=0
-
-    
+    ro.bq.gpu_to_cpu_unsupported=1 \
+    debug.gr.numframebuffers=2
 
 #
 # Dalvik Properties

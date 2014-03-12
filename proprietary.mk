@@ -64,8 +64,8 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/vendor/firmware/fw_bcm4329_apsta.bin:system/vendor/firmware/fw_bcm4329_apsta.bin
 
 # GPS
-PRODUCT_COPY_FILES += \
-    device/htc/leo/proprietary/lib/libgps.so:system/lib/libgps.so
+# PRODUCT_COPY_FILES += \
+#  device/htc/leo/proprietary/lib/libgps.so:system/lib/libgps.so
 
 # Media
 PRODUCT_COPY_FILES += \
