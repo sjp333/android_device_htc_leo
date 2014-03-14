@@ -18,5 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_leo.mk \
     $(LOCAL_DIR)/omni_leo.mk

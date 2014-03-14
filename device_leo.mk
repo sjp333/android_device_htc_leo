@@ -34,11 +34,15 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
+        device/htc/leo/ramdisk/logo.rle:root/logo.rle \
+        device/htc/leo/ramdisk/fstab.htcleo:root/fstab.htcleo \
 	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
 	device/htc/leo/ramdisk/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
-	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
-	device/htc/leo/ramdisk/logo.rle:root/logo.rle \
-	device/htc/leo/ramdisk/fstab.htcleo:root/fstab.htcleo
+        device/htc/leo/ramdisk/init.power.rc:root/init.power.rc \
+	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc
+	
+	
+        
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
@@ -117,10 +121,6 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_COPY_FILES += \
     device/htc/leo/media_codecs.xml:system/etc/media_codecs.xml \
     device/htc/leo/audio_policy.conf:system/etc/audio_policy.conf
-
-# Misc
-PRODUCT_COPY_FILES += \
-    device/htc/leo/init.power.rc:root/init.power.rc
 
 #
 # Required Packages

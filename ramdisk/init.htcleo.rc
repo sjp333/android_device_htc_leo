@@ -4,12 +4,18 @@ on early-init
 
 # enable adb early
     write /sys/class/android_usb/android0/iSerial 0123456789ABCDEF
-    
-    export EXTERNAL_STORAGE /storage/sdcard0
-    mkdir /storage 0050 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard    
+
+on init
+
+    mkdir /storage 0775 system sdcard_r
+    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /storage/sdcard0 0700 root root
+
+# for backwards compatibility
+     symlink /storage/sdcard0 /sdcard
+     symlink /storage/sdcard0 /mnt/sdcard
+
+     export EXTERNAL_STORAGE /storage/sdcard0  
 
 on fs
     # Mount all partitions
@@ -171,10 +177,10 @@ on boot
     write /sys/block/mtdblock5/bdi/read_ahead_kb 4
 
     # Power Management
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 998400
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 40000
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
 
     # KSM defaults
     # write /sys/kernel/mm/ksm/sleep_millisecs 1500
@@ -203,6 +209,12 @@ on boot
 #
 # Services Start here
 #
+
+#sdcard daemon
+service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+    disabled
+
 
 service akmd /system/bin/akmd
     class main
