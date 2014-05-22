@@ -1,0 +1,35 @@
+#!/system/bin/sh
+# Modified HWUI framework patch is requird
+# http://forum.xda-developers.com/showthread.php?t=1766576
+#
+# Developer of this script: tytung @ androidforum.tytung.com
+
+DIR="/data/local/hwui.deny/forced"
+if [ ! -d $DIR ]; then
+  mkdir $DIR  
+  chmod 0755 $DIR
+  chown system.system $DIR
+fi
+
+# Fix the video playing issue of YouTube v5.x for legacy devices
+Files="$Files $DIR/com.google.android.youtube"
+
+# Fix the black box for KitKat
+Files="$Files $DIR/com.android.browser"
+Files="$Files $DIR/com.android.htmlviewer"
+Files="$Files $DIR/com.android.email"
+Files="$Files $DIR/com.google.android.gm"
+
+for File in $Files
+do
+  BLACKLIST="$File `echo $File | sed "s/forced\///g"`"
+  for File in $BLACKLIST
+  do
+    if [ ! -f $File ]; then
+      touch $File
+      chmod 0600 $File
+      chown system.system $File
+    fi
+  done
+done
+
