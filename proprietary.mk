@@ -66,7 +66,11 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 # PRODUCT_COPY_FILES += \
-#  device/htc/leo/proprietary/lib/libgps.so:system/lib/libgps.so
+#	device/htc/leo/proprietary/lib/libgps.so:system/lib/libgps.so
+
+# HWA
+PRODUCT_COPY_FILES += \
+	device/htc/leo/proprietary/app/HwaSettings.apk:/system/app/HwaSettings.apk
 
 # Media
 PRODUCT_COPY_FILES += \
