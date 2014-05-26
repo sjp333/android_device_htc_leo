@@ -11,7 +11,7 @@ Build requirements:
 *  https://gerrit.omnirom.org/#/c/5043/
 *  https://gerrit.omnirom.org/#/c/5044/
 *  https://gerrit.omnirom.org/#/c/5045/
-*  https://gerrit.omnirom.org/#/c/5046/*
+*  https://gerrit.omnirom.org/#/c/5046/
 *  this commit for RIL:
 *  https://gerrit.omnirom.org/#/c/7369/
 *  this commit for HWUI deny:
