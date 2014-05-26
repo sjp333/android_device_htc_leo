@@ -12,8 +12,9 @@ Build requirements:
 *  https://gerrit.omnirom.org/#/c/5044/
 *  https://gerrit.omnirom.org/#/c/5045/
 *  https://gerrit.omnirom.org/#/c/5046/*
-*  this commit for rik:
+*  this commit for RIL:
 *  https://gerrit.omnirom.org/#/c/7369/
 *  this commit for HWUI deny:
 *  https://gerrit.omnirom.org/#/c/7674/
-
+*  this commit for write boot.img
+*  https://gerrit.omnirom.org/#/c/7714/
