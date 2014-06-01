@@ -42,7 +42,7 @@
   TARGET_ARCH_VARIANT := armv7-a-neon
   TARGET_CPU_ABI := armeabi-v7a
   TARGET_CPU_ABI2 := armeabi
-  TARGET_CPU_VARIANT := cortex-a8
+  TARGET_CPU_VARIANT := scorpion
   TARGET_ARCH_VARIANT_CPU := scorpion
   TARGET_ARCH_VARIANT_FPU := neon
   TARGET_ARCH_LOWMEM := true
@@ -61,7 +61,7 @@
   BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
   BOARD_KERNEL_BASE := 0x11808000
   BOARD_KERNEL_NEW_PPPOX := true
-  TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+  KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.4.3/bin/arm-eabi-
   
 # bootanimation
   TARGET_BOOTANIMATION_HALF_RES := true
