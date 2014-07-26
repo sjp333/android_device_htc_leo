@@ -27,7 +27,7 @@
 # general 
   USE_CAMERA_STUB := false
 
-# fix for twrp build on omnirom
+# fix for twrp build
   DEVICE_RESOLUTION := 480x800
 
   # TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include/
@@ -59,7 +59,7 @@
   TARGET_KERNEL_SOURCE := kernel/htc/leo
   TARGET_KERNEL_CONFIG := htcleo_defconfig
   BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
-  BOARD_KERNEL_BASE := 0x11808000
+  BOARD_KERNEL_BASE := 0x11800000
   BOARD_KERNEL_NEW_PPPOX := true
   KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.4.3/bin/arm-eabi-
   
@@ -128,18 +128,6 @@
   WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
   BOARD_LEGACY_NL80211_STA_EVENTS := true
 
-# Wifi bcm4329 config for android 4.3/4 use android 4.2 qcom wlan
-#  WIFI_BAND                        := 802_11_ABG
-#  BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
-#  BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-#  WPA_SUPPLICANT_VERSION           := VER_0_8_X
-#  BOARD_WLAN_DEVICE                := bcm4329
-#  WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcm4329.bin"
-#  WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcm4329_apsta.bin"
-#  WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
-#  WIFI_DRIVER_MODULE_NAME          := "bcm4329"
-#  WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcm4329.ko"
-
 # Audio
   BOARD_USES_GENERIC_AUDIO := false
 
@@ -170,7 +158,7 @@
   BOARD_USES_LEGACY_RIL := true
 
 # USB
-  TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
 
 # Recovery
   TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo
