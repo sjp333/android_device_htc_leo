@@ -73,6 +73,7 @@
   BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/leo/bluetooth/include
 
 # Qcom
+  TARGET_USES_ION := true
   BOARD_USES_QCOM_HARDWARE := true
   COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
   COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
@@ -96,10 +97,6 @@
   TARGET_FORCE_SCREENSHOT_CPU_PATH := true
   #Fix slow boot
   TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
-  BOARD_USES_HWCOMPOSER := true
-  BOARD_NEEDS_OLD_HWC_API := true
-
-
 
 # Webkit
   TARGET_FORCE_CPU_UPLOAD := true
@@ -151,8 +148,6 @@
   BOARD_FLASH_BLOCK_SIZE := 131072
 # Fix set metadata on yaffs2 use old set permission
   USE_SET_METADATA := false
-
-
 
 # Ril
   BOARD_USES_LEGACY_RIL := true
