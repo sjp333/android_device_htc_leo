@@ -61,7 +61,7 @@
   BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
   BOARD_KERNEL_BASE := 0x11800000
   BOARD_KERNEL_NEW_PPPOX := true
-  KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.4.3/bin/arm-eabi-
+#  KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.4.3/bin/arm-eabi-
   
 # bootanimation
   TARGET_BOOTANIMATION_HALF_RES := true
