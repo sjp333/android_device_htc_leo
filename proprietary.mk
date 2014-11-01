@@ -60,18 +60,16 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/etc/firmware/yamato_pm4.fw:/system/etc/firmware/yamato_pm4.fw \
     device/htc/leo/proprietary/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
     device/htc/leo/proprietary/etc/firmware/default.acdb:system/etc/firmware/default.acdb \
-    device/htc/leo/proprietary/vendor/firmware/fw_bcm4329.bin:system/vendor/firmware/fw_bcm4329.bin \
-    device/htc/leo/proprietary/vendor/firmware/fw_bcm4329_apsta.bin:system/vendor/firmware/fw_bcm4329_apsta.bin \
     device/htc/leo/proprietary/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 # GPS
-#PRODUCT_COPY_FILES += \
-#	device/htc/leo/proprietary/lib/libgps.so:system/lib/libgps.so \
-#	device/htc/leo/proprietary/lib/hw/gps.htcleo.so:system/lib/hw/gps.htcleo.so
+PRODUCT_COPY_FILES += \
+	device/htc/leo/proprietary/lib/libgps.so:system/lib/libgps.so \
+	device/htc/leo/proprietary/lib/hw/gps.htcleo.so:system/lib/hw/gps.htcleo.so
 
 # HWA
-PRODUCT_COPY_FILES += \
-	device/htc/leo/proprietary/app/HwaSettings.apk:/system/app/HwaSettings.apk
+#PRODUCT_COPY_FILES += \
+#	device/htc/leo/proprietary/app/HwaSettings.apk:/system/app/HwaSettings.apk
 
 # Media
 PRODUCT_COPY_FILES += \

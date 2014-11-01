@@ -114,9 +114,6 @@ PRODUCT_LOCALES += hdpi mdpi
 
 # QSD8K Commomn Stuff
 
-# English locale
-# PRODUCT_LOCALES := en
-
 # High Density art
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -147,12 +144,20 @@ PRODUCT_PACKAGES += \
     gralloc.qsd8k \
     hwcomposer.qsd8k
 
+# QCOM OMX
+#PRODUCT_PACKAGES += \
+#	libstagefrighthw \
+#	libOmxCore \
+#	libmm-omxcore \
+#       libdivxdrmdecrypt \
+#	libOmxVdec \
+	#libOmxVenc
 # Omx
 PRODUCT_PACKAGES += \
-    libOmxCore \
-    libOmxVdec \
-    libstagefrighthw \
-    libOmxVidEnc 
+	libOmxCore \
+	libOmxVdec \
+	libstagefrighthw
+	# libOmxVidEnc \	
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
