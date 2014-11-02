@@ -155,9 +155,9 @@ PRODUCT_PACKAGES += \
 # Omx
 PRODUCT_PACKAGES += \
 	libOmxCore \
-	libOmxVdec \
-	libstagefrighthw
-	# libOmxVidEnc \	
+        libstagefrighthw
+	# libOmxVdec \
+	# libOmxVidEnc	
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
