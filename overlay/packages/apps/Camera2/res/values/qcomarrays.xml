@@ -1,0 +1,14 @@
+
+<resources>
+
+    <!-- Camera Preferences Video Encoder dialog box entries -->
+    <string-array name="pref_camera_videoencoder_entries" translatable="false">
+        <item>@string/pref_camera_videoencoder_entry_0</item>
+    </string-array>
+
+    <string-array name="pref_camera_videoencoder_entryvalues" translatable="false">
+        <item>m4v</item>
+    </string-array>
+
+</resources>
+

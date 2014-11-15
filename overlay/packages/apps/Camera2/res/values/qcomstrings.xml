@@ -1,0 +1,3 @@
+<resources>
+    <string name="pref_camera_videoencoder_default" translatable="false">m4v</string>
+</resources>

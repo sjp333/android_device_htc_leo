@@ -16,15 +16,13 @@
 ** limitations under the License.
 */
 -->
+
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
-    config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
+         config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
-
-    <!-- disable menu hard key on bravo in non-pattern lockscreen -->
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
     <!-- Flag indicating whether the surface flinger has limited
          alpha compositing functionality in hardware.  If set, the window
@@ -56,25 +54,23 @@
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
-         than the size of the config_autoBrightnessLevels array.
-    -->
+         than the size of the config_autoBrightnessLevels array. -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>30</item>
         <item>40</item>
-        <item>40</item>
-        <item>55</item>
-        <item>65</item>
-        <item>80</item>
-        <item>100</item>
-        <item>120</item>
-        <item>160</item>
-        <item>200</item>
+        <item>50</item>
+        <item>60</item>
+        <item>75</item>
+        <item>95</item>
+        <item>110</item>
+        <item>140</item>
+        <item>180</item>
         <item>255</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
-         than the size of the config_autoBrightnessLevels array.
-    -->
+         than the size of the config_autoBrightnessLevels array. -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
         <item>120</item>
         <item>140</item>
@@ -91,8 +87,7 @@
     <!-- Array of output values for keyboard backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
-         Bravo has no keyboard so all values are zero.
-    -->
+         Leo has no keyboard so all values are zero. -->
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
         <item>0</item>
         <item>0</item>
@@ -106,18 +101,11 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
-         specified -->
-    <string name="default_wallpaper_component">@null</string>
-
     <integer name="config_deskDockKeepsScreenOn">0</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
 
-    <!-- Default color for notification LED is green -->
-    <color name="config_defaultNotificationColor">#ff00ff00</color>
-
-    <!-- Default blink frequency for notification LED is 9 seconds. -->
-    <integer name="config_defaultNotificationLedOff">4000</integer>
+    <!-- Default color for notification LED is is cyan -->
+    <color name="config_defaultNotificationColor">#0099FF</color>
 
     <string-array name="config_locationProviderPackageNames" translatable="false">
         <!-- The standard AOSP fused location provider -->
@@ -183,21 +171,19 @@
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
-        <item>30</item>
+        <item>20</item>
     </integer-array>
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>
-
-    <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">10</integer>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
+    <!-- Enables or disables fading edges when marquee is enabled in TextView. -->
     <bool name="config_ui_enableFadingMarquee">false</bool>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
@@ -215,5 +201,9 @@
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
+
+    <!-- Enable translucent status bar -->
+    <bool name="config_enableTranslucentDecor">true</bool>
+
 
 </resources>
