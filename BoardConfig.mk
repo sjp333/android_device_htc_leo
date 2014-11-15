@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 #
 # This file sets variables that control the way modules are built
 # thorughout the system. It should not be used to conditionally
@@ -27,11 +26,6 @@
 # general 
   USE_CAMERA_STUB := false
 
-# fix for twrp build
-  DEVICE_RESOLUTION := 480x800
-
-  # TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include/
-
 # Board/CPU
   TARGET_NO_BOOTLOADER := true
   BOARD_VENDOR := htc
@@ -42,18 +36,14 @@
   TARGET_ARCH_VARIANT := armv7-a-neon
   TARGET_CPU_ABI := armeabi-v7a
   TARGET_CPU_ABI2 := armeabi
-  TARGET_CPU_VARIANT := scorpion
-  TARGET_ARCH_VARIANT_CPU := scorpion
-  TARGET_ARCH_VARIANT_FPU := neon
-  TARGET_ARCH_LOWMEM := true
-  ARCH_ARM_HAVE_VFP := true
+  TARGET_CPU_VARIANT := cortex-a8
 
-  # Scorpion
-   TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+# Scorpion
+  TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 
-  # FPU compilation flags
-    TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-    TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+# FPU compilation flags
+  TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+  TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 
 # Kernel
   TARGET_KERNEL_SOURCE := kernel/htc/leo
@@ -61,10 +51,6 @@
   BOARD_KERNEL_CMDLINE := no_console_suspend=1 wire.search_count=5
   BOARD_KERNEL_BASE := 0x11800000
   BOARD_KERNEL_NEW_PPPOX := true
-#  KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.4.3/bin/arm-eabi-
-  
-# bootanimation
-  TARGET_BOOTANIMATION_HALF_RES := true
 
 # Bluetooth
   BOARD_HAVE_BLUETOOTH := true
@@ -73,17 +59,11 @@
   BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/leo/bluetooth/include
 
 # Qcom
-  TARGET_USES_ION := true
-  BOARD_USES_QCOM_HARDWARE := true
-  COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-  COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
   TARGET_QCOM_DISPLAY_VARIANT := legacy
   TARGET_QCOM_MEDIA_VARIANT := legacy
   TARGET_QCOM_AUDIO_VARIANT := legacy
-  BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
-  
 
-# Hardware rendering
+# Display
   BOARD_EGL_CFG := device/htc/leo/egl.cfg
   USE_OPENGL_RENDERER := true
   BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
@@ -92,28 +72,20 @@
   BOARD_NEEDS_MEMORYHEAPPMEM := true
   BOARD_EGL_WORKAROUND_BUG_10194508 := true
   TARGET_NO_HW_VSYNC := true
-  COMMON_GLOBAL_CFLAGS += -DTARGET_8x50 -DQCOM_NO_SECURE_PLAYBACK -DDONT_USE_FENCE_SYNC -DEGL_NEEDS_FNW
-  BOARD_EGL_NEEDS_LEGACY_FB := true
+  COMMON_GLOBAL_CFLAGS += -DTARGET_8x50
   TARGET_FORCE_SCREENSHOT_CPU_PATH := true
-  #Fix slow boot
-  TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
-  TARGET_GRALLOC_USES_ASHMEM := true
-# TARGET_USES_QCOM_BSP := true
+  TARGET_USES_ION := true
+
 
 # Webkit
   TARGET_FORCE_CPU_UPLOAD := true
   ENABLE_WEBGL := true
 
-# Camera
+# Camera/Media
   BOARD_USES_PMEM_ADSP := true
-  BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true 
-#  CAMERA_USES_SURFACEFLINGER_CLIENT_STUB := true
-#  TARGET_DISABLE_ARM_PIE := true
-  COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
-
-# Camcorder
-  BOARD_USE_OLD_AVC_ENCODER := true
-  BOARD_NO_BFRAMES := true
+  BOARD_USES_QCOM_HARDWARE := true
+  COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+  COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
 
 # Wifi bcmdhd config
   WIFI_BAND := 802_11_ABG
@@ -138,10 +110,6 @@
   BOARD_VENDOR_USE_AKMD := akm8973
 
 # GPS
-  # to enable the GPS HAL
-  BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := htcleo
-  # AMSS version to use for GPS
-  BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
   BOARD_USES_GPSSHIM := true
 
 # Legacy
@@ -160,6 +128,9 @@
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
+
+# Dalvik
+  TARGET_ARCH_LOWMEM := true
 
 # Recovery
   TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo
