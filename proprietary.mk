@@ -22,9 +22,13 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
     device/htc/leo/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     device/htc/leo/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    device/htc/leo/proprietary/lib/egl/libplayback_adreno200.so:system/lib/egl/libplayback_adreno200.so \
     device/htc/leo/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
     device/htc/leo/proprietary/lib/libgsl.so:system/lib/libgsl.so \
-    device/htc/leo/proprietary/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so 
+    device/htc/leo/proprietary/lib/libOpenCL.so:system/lib/libOpenCL.so \
+    device/htc/leo/proprietary/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+    device/htc/leo/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/leo/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
 # Audio
 PRODUCT_COPY_FILES += \
