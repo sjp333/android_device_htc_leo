@@ -64,7 +64,7 @@
   TARGET_QCOM_AUDIO_VARIANT := legacy
 
 # Display
-  BOARD_EGL_CFG := device/htc/leo/egl.cfg
+  BOARD_EGL_CFG := device/htc/leo/configs/egl.cfg
   USE_OPENGL_RENDERER := true
   BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
   # We only have 2 buffers

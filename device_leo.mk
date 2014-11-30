@@ -58,10 +58,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         device/htc/leo/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
 
-# media config xml file
-PRODUCT_COPY_FILES += \
-	device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml
-
 # Fix graphic crash
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    debug.sf.hw=0
@@ -120,8 +116,9 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Configs
 PRODUCT_COPY_FILES += \
-    device/htc/leo/media_codecs.xml:system/etc/media_codecs.xml \
-    device/htc/leo/audio_policy.conf:system/etc/audio_policy.conf
+    device/htc/leo/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/leo/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 #
 # Required Packages
