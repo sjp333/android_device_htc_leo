@@ -12,15 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file is the build configuration for a full Android
-# build for leo hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps).
-#
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
@@ -42,33 +33,14 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
 	device/htc/leo/ramdisk/bin/busybox:root/bin/busybox \
 	device/htc/leo/ramdisk/bin/e2fsck:root/bin/e2fsck
-	
-	
-        
-
-# GSM APN list
-PRODUCT_COPY_FILES += \
-        vendor/ev/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # GPS
 PRODUCT_COPY_FILES += \
         device/htc/leo/configs/gps.conf:system/etc/gps.conf
 
-# Add the postrecoveryboot.sh so that the recovery.fstab can be changed
-PRODUCT_COPY_FILES += \
-        device/htc/leo/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
-
-# Fix graphic crash
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    debug.sf.hw=0
-
 # Scripts
 PRODUCT_COPY_FILES += \
-	device/htc/leo/scripts/init.d/01modules:system/etc/init.d/01modules \
-	device/htc/leo/scripts/init.d/02usb_tethering:system/etc/init.d/02usb_tethering \
-	device/htc/leo/scripts/init.d/10mic_level:system/etc/init.d/10mic_level \
-	device/htc/leo/scripts/init.d/99_hwui_deny_fix:system/etc/init.d/99_hwui_deny_fix
-
+	device/htc/leo/scripts/init.d/01modules:system/etc/init.d/01modules
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -82,7 +54,6 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/clk/default.prop:system/default.prop \
 	device/htc/leo/clk/ppp:system/ppp \
 	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/97ppp \
-	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/99libhtc-ril-2g-only-fix \
 	device/htc/leo/clk/etc/ppp/active:system/etc/ppp/active \
 	device/htc/leo/clk/etc/ppp/chap-secrets:system/etc/ppp/chap-secrets \
 	device/htc/leo/clk/etc/ppp/ip-down:system/etc/ppp/ip-down \
@@ -93,14 +64,6 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/clk/etc/ppp/ppp-gprs.pid:system/etc/ppp/ppp-gprs.pid \
 	device/htc/leo/clk/etc/ppp/resolv.conf:system/etc/ppp/resolv.conf
 
-# Kernel modules
-ifeq ($(BUILD_KERNEL),false)
-PRODUCT_COPY_FILES += $(shell \
-    find device/htc/leo/modules -name '*.ko' \
-    | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
-    | tr '\n' ' ')
-endif
-
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml 
@@ -108,7 +71,6 @@ PRODUCT_COPY_FILES += \
 # Leo uses high-density artwork where available
 PRODUCT_LOCALES += hdpi mdpi
 
-# QSD8K Commomn Stuff
 
 # High Density art
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -119,10 +81,6 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/configs/media_codecs.xml:system/etc/media_codecs.xml \
     device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/leo/configs/audio_policy.conf:system/etc/audio_policy.conf
-
-#
-# Required Packages
-#
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -141,35 +99,16 @@ PRODUCT_PACKAGES += \
     gralloc.qsd8k \
     hwcomposer.qsd8k
 
-# QCOM OMX
-#PRODUCT_PACKAGES += \
-#	libstagefrighthw \
-#	libOmxCore \
-#	libmm-omxcore \
-#       libdivxdrmdecrypt \
-#	libOmxVdec \
-	#libOmxVenc
 # Omx
 PRODUCT_PACKAGES += \
 	libOmxCore \
         libstagefrighthw
-	# libOmxVdec \
-	# libOmxVidEnc	
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs
 
 # Misc
 PRODUCT_PACKAGES += \
     power.qsd8k \
     com.android.future.usb.accessory \
     libnetcmdiface
-
-#
-# Hardware Rendering Properties
-#
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
@@ -183,18 +122,10 @@ include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-#
-# Camera (video recording)
-#
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=1 \
     rw.media.record.hasb=0
-
-#
-# Wifi
-#
 
 # Firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
@@ -203,14 +134,6 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=45
-
-#
-# Qcom
-#
-
-# Init post-boot script
-PRODUCT_COPY_FILES += \
-    device/htc/leo/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
 
 #
 # Permissions
