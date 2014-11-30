@@ -110,11 +110,62 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libnetcmdiface
 
+# Firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
+# Additional Propreties
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240 \
+    rild.libpath=/system/lib/libhtc_ril.so \
+    ro.ril.gprsclass=12 \
+    ro.ril.hsdpa.category=8 \
+    ro.ril.hsupa.category=5 \
+    ro.ril.hsxpa=2 \
+    ro.ril.def.agps.mode=2 \
+    ro.ril.disable.power.collapse=0 \
+    mobiledata.interfaces=ppp0 \
+    ro.media.dec.jpeg.memcap=20000000 \
+    ro.opengles.version=131072 \
+    ro.telephony.default_network=3 \
+    ro.ril.enable.prl.recognition=1 \
+    ro.ril.enable.managed.roaming=1 \
+    ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
+    ro.ril.emc.mode=2 \
+    ro.telephony.ril.v3=signalstrengthgsm,apptypesim \
+    ro.vold.umsdirtyratio=20 \
+    persist.sys.root_access=1 \
+    persist.sys.purgeable_assets=1 \
+    persist.webview.provider=classic \
+    windowsmgr.max_events_per_sec=120 \
+    ro.serialno=0123456789ABCDEF \
     debug.sf.hw=1 \
+    debug.sf.no_hw_vsync=1 \
     debug.composition.type=mdp \
-    ro.bq.gpu_to_cpu_unsupported=1 \
+    ro.zygote.disable_gl_preload=true \
     debug.gr.numframebuffers=2
+
+
+# Low Mem
+PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
+
+# Disable jit
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.jit.codecachesize=0
+
+# Scrolling tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min_pointer_dur=8 \
+    ro.max.fling_velocity=12000 \
+    ro.min.fling_velocity=8000 \
+
+# Dalvik Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=48m \
+    dalvik.vm.heapsize=128m \
+    dalvik.vm.execution-mode=int:jit \
+    dalvik.vm.lockprof.threshold=500 \
+    dalvik.vm.dexopt-flags=m=y \
+    ro.sys.fw.bg_apps_limit=12 \
+    dalvik.vm.checkjni=false
 
 # Default heap settings for 512mb device
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
@@ -127,18 +178,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=1 \
     rw.media.record.hasb=0
 
-# Firmware
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=45
 
-#
-# Permissions
-#
+# Set usb type
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    persist.sys.usb.config=mass_storage \
+    persist.service.adb.enable=1
 
+# Don't put /dalvik-cache to /cache partition. (for CM)
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dexopt-data-only=1
+
+# Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
