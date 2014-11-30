@@ -156,7 +156,3 @@ PRODUCT_COPY_FILES += \
 # Proprietary
 $(call inherit-product, device/htc/leo/proprietary.mk)
 
-# Discard inherited values and use our own instead.
-PRODUCT_NAME := full_leo
-PRODUCT_DEVICE := leo
-PRODUCT_MODEL := Full Android on leo

@@ -22,11 +22,6 @@ subdir_makefiles := \
     $(LOCAL_PATH)/custom_libraries/libsensors/Android.mk \
     $(LOCAL_PATH)/custom_libraries/power/Android.mk
 
-
-
-
-       
-
 include $(subdir_makefiles)
 
 endif
