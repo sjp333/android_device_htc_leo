@@ -55,13 +55,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/bin/parse_radio_log:system/bin/parse_radio_log 
 
-
 # RIL
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
     device/htc/leo/proprietary/lib/libhtc_ril_wrapper.so:system/lib/libhtc_ril_wrapper.so \
     device/htc/leo/proprietary/lib/libril.so:system/lib/libril.so
-
 
 # Omx
 PRODUCT_COPY_FILES += \
