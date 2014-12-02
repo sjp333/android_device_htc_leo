@@ -20,7 +20,6 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 PRODUCT_PACKAGES += \
 	sensors.htcleo \
 	lights.htcleo \
- 	gps.htcleo \
 	leo-reference-ril
 
 # Ramdisk
@@ -37,6 +36,11 @@ PRODUCT_COPY_FILES += \
 # GPS
 PRODUCT_COPY_FILES += \
 	device/htc/leo/configs/gps.conf:system/etc/gps.conf
+
+PRODUCT_PACKAGES += \
+	gps.htcleo \
+	libgps \
+	librpc
 
 # Scripts
 PRODUCT_COPY_FILES += \

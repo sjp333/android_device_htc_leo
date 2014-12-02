@@ -113,6 +113,7 @@ BOARD_VENDOR_USE_AKMD := akm8973
 
 # GPS
 BOARD_USES_GPSSHIM := true
+BOARD_GPS_LIBRARIES := libgps
 
 # Legacy
 BOARD_USE_LEGACY_TRACKPAD := true 
@@ -126,13 +127,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 
 # Ril
-  BOARD_USES_LEGACY_RIL := true
+BOARD_USES_LEGACY_RIL := true
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
 
 # Dalvik
-  TARGET_ARCH_LOWMEM := true
+TARGET_ARCH_LOWMEM := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo
