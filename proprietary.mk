@@ -38,6 +38,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
+    device/htc/leo/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
     device/htc/leo/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
     device/htc/leo/proprietary/lib/libcamera.so:system/lib/libcamera.so
 
