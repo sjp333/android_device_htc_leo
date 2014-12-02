@@ -36,7 +36,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-        device/htc/leo/configs/gps.conf:system/etc/gps.conf
+	device/htc/leo/configs/gps.conf:system/etc/gps.conf
 
 # Scripts
 PRODUCT_COPY_FILES += \
@@ -78,9 +78,9 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Configs
 PRODUCT_COPY_FILES += \
-    device/htc/leo/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/htc/leo/configs/audio_policy.conf:system/etc/audio_policy.conf
+	device/htc/leo/configs/media_codecs.xml:system/etc/media_codecs.xml \
+	device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/htc/leo/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -102,7 +102,7 @@ PRODUCT_PACKAGES += \
 # Omx
 PRODUCT_PACKAGES += \
 	libOmxCore \
-        libstagefrighthw
+	libstagefrighthw
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -181,7 +181,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=45
+    wifi.supplicant_scan_interval=120
 
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \

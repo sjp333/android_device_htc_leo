@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    device/htc/leo/proprietary/lib/libcamera.so:system/lib/libcamera.so 
+    device/htc/leo/proprietary/lib/libcamera.so:system/lib/libcamera.so
 
 # Compass
 PRODUCT_COPY_FILES += \
@@ -50,12 +50,6 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
     device/htc/leo/proprietary/etc/firmware/default.acdb:system/etc/firmware/default.acdb \
 
-# Media
-PRODUCT_COPY_FILES += \
-    device/htc/leo/proprietary/vendor/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
-    device/htc/leo/proprietary/vendor/lib/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
-    device/htc/leo/proprietary/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so
-
 # Radio log
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/bin/parse_radio_log:system/bin/parse_radio_log 
@@ -65,15 +59,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
     device/htc/leo/proprietary/lib/libhtc_ril_wrapper.so:system/lib/libhtc_ril_wrapper.so \
-    device/htc/leo/proprietary/lib/libril.so:system/lib/libril.so \
-    device/htc/leo/proprietary/lib/librpc.so:system/lib/librpc.so 
+    device/htc/leo/proprietary/lib/libril.so:system/lib/libril.so
+
 
 # Omx
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/lib/libOmxVdec.so:system/lib/libOmxVdec.so \
     device/htc/leo/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so
 
-# Vendor library
-PRODUCT_COPY_FILES += \
-    device/htc/leo/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so
 
