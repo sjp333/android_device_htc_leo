@@ -130,6 +130,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.no_hw_vsync=1 \
 	debug.composition.type=mdp \
 	ro.zygote.disable_gl_preload=true \
+	camera2.portability.force_api=1 \
 	debug.gr.numframebuffers=2 \
 	ro.setupwizard.enable_bypass=1 \
 	audio.offload.disable=1
