@@ -26,6 +26,8 @@
 # general 
 USE_CAMERA_STUB := false
 
+TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include
+
 # Board/CPU
 TARGET_NO_BOOTLOADER := true
 BOARD_VENDOR := htc
