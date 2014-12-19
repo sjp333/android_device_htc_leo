@@ -193,8 +193,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
-	persist.sys.usb.config=mass_storage \
-	persist.service.adb.enable=1
+    persist.service.adb.enable=1 \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.allow.mock.location=1
 
 # Permissions
 PRODUCT_COPY_FILES += \
