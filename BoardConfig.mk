@@ -112,7 +112,7 @@ BOARD_USE_LEGACY_TRACKPAD := true
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
-# Enable dex-preoptimization to speed up first boot sequence
+# ART
 ifeq ($(HOST_OS),linux)
   ifeq ($(TARGET_BUILD_VARIANT),userdebug)
     ifeq ($(WITH_DEXPREOPT),)
@@ -121,9 +121,8 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
-
-#Art
 TARGET_CPU_SMP := false
+MALLOC_IMPL := dlmalloc
 
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
