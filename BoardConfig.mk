@@ -117,6 +117,16 @@ BOARD_USE_LEGACY_TRACKPAD := true
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760 # 10M
