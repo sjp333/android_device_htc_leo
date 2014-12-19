@@ -94,8 +94,8 @@ PRODUCT_PACKAGES += \
 	audio_policy.qsd8k
 
 # Camera
-PRODUCT_PACKAGES += \
-	camera.qsd8k
+#PRODUCT_PACKAGES += \
+#	camera.qsd8k
 
 # Display
 PRODUCT_PACKAGES += \
