@@ -58,11 +58,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/leo/bluetooth/vnd_qsd8k.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/leo/bluetooth/include
 
-# Qcom
-TARGET_QCOM_DISPLAY_VARIANT := legacy
-TARGET_QCOM_MEDIA_VARIANT := legacy
-TARGET_QCOM_AUDIO_VARIANT := legacy
-
 # Display
 BOARD_EGL_CFG := device/htc/leo/configs/egl.cfg
 USE_OPENGL_RENDERER := true
@@ -80,10 +75,9 @@ TARGET_FORCE_CPU_UPLOAD := true
 ENABLE_WEBGL := true
 
 # Camera/Media
-TARGET_QCOM_LEGACY_OMX := true
-TARGET_USES_SUBMIT_ONE_INPUT_BUFFER := true
-TARGET_LEGACY_OMX_QSD8K := true
-BOARD_USES_PMEM_ADSP := true
+#TARGET_QCOM_LEGACY_OMX := true
+#TARGET_USES_SUBMIT_ONE_INPUT_BUFFER := true
+#TARGET_LEGACY_OMX_QSD8K := true
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
@@ -133,9 +127,6 @@ BOARD_USES_LEGACY_RIL := true
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
-
-# Dalvik
-TARGET_ARCH_LOWMEM := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo

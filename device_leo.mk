@@ -164,13 +164,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-	dalvik.vm.heapgrowthlimit=48m \
-	dalvik.vm.heapsize=128m \
+	dalvik.vm.checkjni=false \
+	dalvik.vm.dexopt-data-only=1 \
 	dalvik.vm.execution-mode=int:jit \
+	dalvik.vm.verify-bytecode=false \
 	dalvik.vm.lockprof.threshold=500 \
-	dalvik.vm.dexopt-flags=m=y \
+	dalvik.vm.debug.alloc=0 \
 	ro.sys.fw.bg_apps_limit=12 \
-	dalvik.vm.checkjni=false
+	sys.mem.max_hidden_apps=7 \
+	ro.config.max_starting_bg=7
+
 
 # Default heap settings for 512mb device
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
@@ -192,10 +195,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.sys.usb.config=mass_storage \
 	persist.service.adb.enable=1
-
-# Don't put /dalvik-cache to /cache partition. (for CM)
-PRODUCT_PROPERTY_OVERRIDES += \
-	dalvik.vm.dexopt-data-only=1
 
 # Permissions
 PRODUCT_COPY_FILES += \
