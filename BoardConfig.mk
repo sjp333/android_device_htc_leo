@@ -114,6 +114,9 @@ BOARD_GPS_LIBRARIES := libgps
 # Legacy
 BOARD_USE_LEGACY_TRACKPAD := true
 
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760 # 10M
