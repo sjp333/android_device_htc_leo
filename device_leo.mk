@@ -135,7 +135,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.enable_bypass=1 \
 	audio.offload.disable=1
 	ro.config.max_starting_bg=4
-
+	ro.config.low_ram=true \
+	persist.sys.force_highendgfx=true \
 
 # Default heap settings for 512mb device
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
