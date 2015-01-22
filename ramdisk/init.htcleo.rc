@@ -9,7 +9,7 @@ on init
 
 on fs
     # Mount all partitions
-    mount_all ./fstab.htcleo
+    mount_all /fstab.htcleo
 
 on post-fs-data
     # create dalvik-cache, so as to enforce our permissions
