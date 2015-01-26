@@ -97,6 +97,12 @@ PRODUCT_PACKAGES += \
 	wpa_supplicant.conf \
 	wpa_supplicant
 
+PRODUCT_PACKAGES += \
+	mkfs.f2fs \
+	fsck.f2fs \
+	make_f2fs \
+	mkf2fsuserimg.sh	
+
 # Misc
 PRODUCT_PACKAGES += \
 	power.qsd8k \
