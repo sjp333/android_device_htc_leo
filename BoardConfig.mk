@@ -43,10 +43,6 @@ TARGET_CPU_VARIANT := cortex-a8
 # Scorpion
 TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 
-# FPU compilation flags
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/leo
 TARGET_KERNEL_CONFIG := htcleo_defconfig

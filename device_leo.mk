@@ -140,7 +140,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vold.umsdirtyratio=20 \
 	persist.sys.root_access=1 \
 	persist.sys.purgeable_assets=1 \
-	persist.webview.provider=classic \
 	windowsmgr.max_events_per_sec=120 \
 	ro.serialno=0123456789ABCDEF \
 	debug.sf.hw=1 \
