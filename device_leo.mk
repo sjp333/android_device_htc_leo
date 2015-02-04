@@ -148,7 +148,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.sf.no_hw_vsync=1 \
 	debug.composition.type=mdp \
 	ro.zygote.disable_gl_preload=true \
-	debug.gr.numframebuffers=2
+	debug.gr.numframebuffers=2 \
+	audio.offload.disable=1
 
 
 # Low Mem
