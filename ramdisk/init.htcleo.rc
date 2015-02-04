@@ -11,7 +11,10 @@ on fs
     # Mount all partitions
     mount_all ./fstab.htcleo
 
-
+on post-fs-data
+    # create dalvik-cache, so as to enforce our permissions
+    mkdir /data/dalvik-cache 0771 root root
+    mkdir /data/dalvik-cache/arm 0771 system system
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
