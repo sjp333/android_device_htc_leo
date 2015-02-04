@@ -142,6 +142,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vold.umsdirtyratio=20 \
 	persist.sys.root_access=1 \
 	persist.sys.purgeable_assets=1 \
+	config.disable_atlas=true \
 	windowsmgr.max_events_per_sec=120 \
 	ro.serialno=0123456789ABCDEF \
 	debug.sf.hw=1 \
@@ -149,6 +150,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.composition.type=mdp \
 	ro.zygote.disable_gl_preload=true \
 	debug.gr.numframebuffers=2 \
+	ro.setupwizard.enable_bypass=1 \
 	audio.offload.disable=1
 
 
@@ -172,9 +174,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.verify-bytecode=false \
 	dalvik.vm.lockprof.threshold=500 \
 	dalvik.vm.debug.alloc=0 \
-	ro.sys.fw.bg_apps_limit=12 \
+	ro.sys.fw.bg_apps_limit=7 \
 	sys.mem.max_hidden_apps=7 \
-	ro.config.max_starting_bg=7
+	ro.config.max_starting_bg=4
 
 
 # Default heap settings for 512mb device
