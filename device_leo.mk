@@ -43,9 +43,6 @@ PRODUCT_PACKAGES += \
 	libgps \
 	librpc
 
-# Scripts
-PRODUCT_COPY_FILES += \
-	device/htc/leo/scripts/init.d/01modules:system/etc/init.d/01modules
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -109,14 +106,19 @@ PRODUCT_PACKAGES += \
 	libOmxCore \
 	libstagefrighthw
 
+# Wifi
+PRODUCT_PACKAGES += \
+	libnetcmdiface \
+	dhcpcd.conf \
+	hostapd \
+	libwpa_client \
+	wpa_supplicant.conf \
+	wpa_supplicant
+
 # Misc
 PRODUCT_PACKAGES += \
 	power.qsd8k \
-	com.android.future.usb.accessory \
-	libnetcmdiface
-
-# Firmware
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+	com.android.future.usb.accessory
 
 # Additional Propreties
 PRODUCT_PROPERTY_OVERRIDES += \

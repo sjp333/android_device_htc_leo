@@ -49,7 +49,13 @@ PRODUCT_COPY_FILES += \
 # Firmware
 PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/htc/leo/proprietary/etc/firmware/default.acdb:system/etc/firmware/default.acdb \
+    device/htc/leo/proprietary/etc/firmware/fw_bcmdhd.bin:system/etc/firmware/fw_bcmdhd.bin \
+    device/htc/leo/proprietary/etc/firmware/fw_bcmdhd_apsta.bin:system/etc/firmware/fw_bcmdhd_apsta.bin \
+    device/htc/leo/proprietary/etc/firmware/default.acdb:system/etc/firmware/default.acdb
+
+# Wifi
+PRODUCT_COPY_FILES += \
+    device/htc/leo/proprietary/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 # Radio log
 PRODUCT_COPY_FILES += \
