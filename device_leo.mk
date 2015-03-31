@@ -155,9 +155,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Default heap settings for 512mb device
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.camcorder.disablemeta=1 \
