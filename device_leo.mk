@@ -146,6 +146,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.camcorder.disablemeta=1 \
 	rw.media.record.hasb=0
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.dex2oat-filter=interpret-only \
+	dalvik.vm.image-dex2oat-filter=speed
+
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
