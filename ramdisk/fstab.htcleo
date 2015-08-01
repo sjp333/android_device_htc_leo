@@ -8,3 +8,5 @@ recovery                                       /recovery              mtd       
 /dev/block/mmcblk0p3                           /data                  f2fs            rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr                 wait,check
 
 /devices/platform/msm_sdcc.2/mmc_host/mmc1*     auto		      auto 	      defaults 			      voldmanaged=sdcard0:auto,noemulatedsd
+# zRAM
+/dev/block/zram0                              none           swap      defaults                                                                              zramsize=134217728

@@ -140,6 +140,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	camera2.portability.force_api=1 \
 	debug.gr.numframebuffers=2 \
 	ro.setupwizard.enable_bypass=1 \
+	ro.zram.default=1 \
 	persist.sys.silent=1 \
 	ro.config.max_starting_bg=8 \
 	ro.sys.fw.bg_apps_limit=16 \
