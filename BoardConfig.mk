@@ -136,7 +136,9 @@ TARGET_PROVIDES_INIT_RC := true
 BOARD_USES_LEGACY_RIL := true
 
 # USB
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun0/file
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
+BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 
 # Recovery
 TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo
