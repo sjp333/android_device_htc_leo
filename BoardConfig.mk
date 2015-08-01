@@ -39,9 +39,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := scorpion
-
-# Scorpion
-TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/leo
