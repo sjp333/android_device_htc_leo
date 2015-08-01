@@ -19,8 +19,7 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 # Packages
 PRODUCT_PACKAGES += \
 	sensors.htcleo \
-	lights.htcleo \
-	leo-reference-ril
+	lights.htcleo
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -43,28 +42,12 @@ PRODUCT_PACKAGES += \
 	libgps \
 	librpc
 
-
 # Keylayouts
 PRODUCT_COPY_FILES += \
 	device/htc/leo/keylayout/htcleo-keypad.kl:system/usr/keylayout/htcleo-keypad.kl \
 	device/htc/leo/keylayout/htcleo-keypad.kcm:system/usr/keychars/htcleo-keypad.kcm \
 	device/htc/leo/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
 	device/htc/leo/keylayout/htcleo-touchscreen.idc:system/usr/idc/htcleo-touchscreen.idc
-
-# cLK
-PRODUCT_COPY_FILES += \
-	device/htc/leo/clk/default.prop:system/default.prop \
-	device/htc/leo/clk/ppp:system/ppp \
-	device/htc/leo/clk/etc/init.d/97ppp:system/etc/init.d/97ppp \
-	device/htc/leo/clk/etc/ppp/active:system/etc/ppp/active \
-	device/htc/leo/clk/etc/ppp/chap-secrets:system/etc/ppp/chap-secrets \
-	device/htc/leo/clk/etc/ppp/ip-down:system/etc/ppp/ip-down \
-	device/htc/leo/clk/etc/ppp/ip-up:system/etc/ppp/ip-up \
-	device/htc/leo/clk/etc/ppp/options:system/etc/ppp/options \
-	device/htc/leo/clk/etc/ppp/options.smd:system/etc/ppp/options.smd \
-	device/htc/leo/clk/etc/ppp/pap-secrets:system/etc/ppp/pap-secrets \
-	device/htc/leo/clk/etc/ppp/ppp-gprs.pid:system/etc/ppp/ppp-gprs.pid \
-	device/htc/leo/clk/etc/ppp/resolv.conf:system/etc/ppp/resolv.conf
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -130,7 +113,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.hsxpa=2 \
 	ro.ril.def.agps.mode=2 \
 	ro.ril.disable.power.collapse=0 \
-	mobiledata.interfaces=ppp0 \
+	mobiledata.interfaces=rmnet0 \
 	ro.media.dec.jpeg.memcap=20000000 \
 	ro.opengles.version=131072 \
 	ro.telephony.default_network=3 \
