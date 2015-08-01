@@ -45,9 +45,13 @@ on boot
     # begin of permissions for htcleo
     # ===============================
     # flashlight
-    chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
-    chmod 0666          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
-    chmod 0666          /sys/devices/platform/flashlight.0/leds/flashlight/max_brightness
+    chown system system /sys/class/leds/flashlight/brightness
+    chmod 667           /sys/class/leds/flashlight/brightness
+    chown system system /sys/class/leds/flashlight/max_brightness
+    chmod 667           /sys/class/leds/flashlight/max_brightness
+    chown system system /sys/class/leds/flashlight/trigger
+    chmod 667           /sys/class/leds/flashlight/trigger
+
 
     # 720p cam support
     symlink /dev/msm_camera/control0 /dev/msm_camera/control1
@@ -132,6 +136,8 @@ on boot
     chmod 0777 /dev/cm3602
     chmod 0777 /dev/htc-acoustic
 
+    write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
+
     # Wireless properties
     setprop net.dns1 8.8.8.8
     setprop net.dns2 8.8.4.4
@@ -164,10 +170,7 @@ on boot
 
     # GPRS class
     setprop ro.ril.gprsclass 10
-
-    symlink /system/vendor/firmware/fw_bcmdhd.bin /vendor/firmware/fw_bcmdhd.bin
-    symlink /system/vendor/firmware/fw_bcmdhd_apsta.bin /vendor/firmware/fw_bcmdhd_apsta.bin
-    
+  
 # compass/accelerometer daemon
 service akmd /system/bin/akmd
     class main
@@ -217,12 +220,5 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
-
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
 
 service dspcrashd /system/bin/dspcrashd
