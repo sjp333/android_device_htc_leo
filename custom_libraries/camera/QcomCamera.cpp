@@ -687,6 +687,13 @@ int send_command(struct camera_device * device, int32_t cmd,
 {
    ALOGV("send_command: cmd:%d arg0:%d arg1:%d",
         cmd, arg0, arg1);
+
+
+    if (cmd == CAMERA_CMD_ENABLE_FOCUS_MOVE_MSG) {
+        // not supported
+        return 0;
+    }
+
    return qCamera->sendCommand(cmd, arg0, arg1);
 }
 
