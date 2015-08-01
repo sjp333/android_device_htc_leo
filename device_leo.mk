@@ -29,9 +29,7 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
 	device/htc/leo/ramdisk/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
 	device/htc/leo/ramdisk/init.power.rc:root/init.power.rc \
-	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc \
-	device/htc/leo/ramdisk/bin/busybox:root/bin/busybox \
-	device/htc/leo/ramdisk/bin/e2fsck:root/bin/e2fsck
+	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -112,7 +110,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.hsupa.category=5 \
 	ro.ril.hsxpa=2 \
 	ro.ril.def.agps.mode=2 \
-	ro.ril.disable.power.collapse=0 \
 	mobiledata.interfaces=rmnet0 \
 	ro.media.dec.jpeg.memcap=20000000 \
 	ro.opengles.version=131072 \
@@ -137,17 +134,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	audio.offload.disable=1
 
 
-# Low Mem
-PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
-
 # Disable jit
 PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.jit.codecachesize=0
 
-# Scrolling tweaks
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.min_pointer_dur=8 \
-	ro.max.fling_velocity=12000 \
-	ro.min.fling_velocity=8000 \
 
 # Dalvik Properties
 PRODUCT_PROPERTY_OVERRIDES += \
