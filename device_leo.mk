@@ -133,10 +133,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	camera2.portability.force_api=1 \
 	debug.gr.numframebuffers=2 \
 	ro.setupwizard.enable_bypass=1 \
-	audio.offload.disable=1
-	ro.config.max_starting_bg=4
+	persist.sys.silent=1 \
+	ro.config.max_starting_bg=8 \
+	ro.sys.fw.bg_apps_limit=16 \
 	ro.config.low_ram=true \
 	persist.sys.force_highendgfx=true \
+	audio.offload.disable=1 \
+	power.saving.mode=1
 
 # Default heap settings for 512mb device
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
