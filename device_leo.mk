@@ -133,22 +133,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.gr.numframebuffers=2 \
 	ro.setupwizard.enable_bypass=1 \
 	audio.offload.disable=1
-
-
-# Disable jit
-PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.jit.codecachesize=0
-
-
-# Dalvik Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-	dalvik.vm.checkjni=false \
-	dalvik.vm.dexopt-data-only=1 \
-	dalvik.vm.execution-mode=int:jit \
-	dalvik.vm.verify-bytecode=false \
-	dalvik.vm.lockprof.threshold=500 \
-	dalvik.vm.debug.alloc=0 \
-	ro.sys.fw.bg_apps_limit=7 \
-	sys.mem.max_hidden_apps=7 \
 	ro.config.max_starting_bg=4
 
 
