@@ -39,7 +39,6 @@ LOCAL_SRC_FILES := 						\
 				AkmSensor.cpp
 				
 LOCAL_SHARED_LIBRARIES := liblog libcutils
-LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 

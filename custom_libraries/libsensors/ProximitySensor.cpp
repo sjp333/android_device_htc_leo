@@ -68,7 +68,7 @@ int ProximitySensor::setInitialState() {
     return 0;
 }
 
-int ProximitySensor::enable(int32_t, int en) {
+int ProximitySensor::setEnable(int32_t, int en) {
     int newState = en ? 1 : 0;
     int err = 0;
     if (newState != mEnabled) {

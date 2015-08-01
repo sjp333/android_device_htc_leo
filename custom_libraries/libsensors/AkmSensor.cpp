@@ -120,7 +120,7 @@ AkmSensor::AkmSensor()
 AkmSensor::~AkmSensor() {
 }
 
-int AkmSensor::enable(int32_t handle, int en)
+int AkmSensor::setEnable(int32_t handle, int en)
 {
     int what = -1;
     switch (handle) {

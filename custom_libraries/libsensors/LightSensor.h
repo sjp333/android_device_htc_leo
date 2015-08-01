@@ -44,7 +44,7 @@ public:
     virtual ~LightSensor();
     virtual int readEvents(sensors_event_t* data, int count);
     virtual bool hasPendingEvents() const;
-    virtual int enable(int32_t handle, int enabled);
+    virtual int setEnable(int32_t handle, int enabled);
 };
 
 /*****************************************************************************/
