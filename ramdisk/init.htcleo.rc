@@ -88,7 +88,7 @@ on boot
     chown system system /sys/camera_led_status/led_hotspot_status
     chown radio system  /sys/camera_led_status/led_ril_status
     chown system system /sys/camera_led_status/led_wimax_status
-    chown radio radio   /sys/module/pm/parameters/idle_sleep_mode
+    chown radio radio   /sys/module/pm2/parameters/idle_sleep_mode
 
     chmod 0666 /dev/rfkill
     #chmod 0666 /dev/q6venc
