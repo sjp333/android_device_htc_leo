@@ -17,6 +17,8 @@
  */
 -->
 <resources>
+    <string name="def_airplane_mode_radios" translatable="false">cell,bluetooth,wifi</string>
+    <string name="airplane_mode_toggleable_radios" translatable="false">bluetooth,wifi</string>
     <bool name="def_screen_brightness_automatic_mode">true</bool>
     <bool name="def_haptic_feedback">false</bool>
     <bool name="def_install_non_market_apps">true</bool>
@@ -25,4 +27,13 @@
     <integer name="def_pointer_speed">50</integer>
     <!-- Default for UI touch sounds enabled -->
     <bool name="def_sound_effects_enabled">false</bool>
+    <integer name="def_wifi_sleep_policy">2</integer>
+    <!-- Default value of Settings.System.ENABLE_FORWARD_LOOKUP -->
+    <integer name="def_forward_lookup">0</integer>
+
+    <!-- Default value of Settings.System.ENABLE_PEOPLE_LOOKUP -->
+    <integer name="def_people_lookup">0</integer>
+
+    <!-- Default value of Settings.System.ENABLE_REVERSE_LOOKUP -->
+    <integer name="def_reverse_lookup">0</integer>
 </resources>
