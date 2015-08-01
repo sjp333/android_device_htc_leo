@@ -67,8 +67,8 @@ PRODUCT_COPY_FILES += \
     device/htc/leo/proprietary/lib/libril.so:system/lib/libril.so
 
 # Omx
-PRODUCT_COPY_FILES += \
-    device/htc/leo/proprietary/lib/libOmxVdec.so:system/lib/libOmxVdec.so \
-    device/htc/leo/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so
+# PRODUCT_COPY_FILES += \
+#    device/htc/leo/proprietary/lib/libOmxVdec.so:system/lib/libOmxVdec.so \
+#    device/htc/leo/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so
 
 
