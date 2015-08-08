@@ -1,0 +1,41 @@
+# Adreno
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libplayback_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/libgsl.so
+lib/libOpenCL.so
+lib/libsc-a2xx.so
+etc/firmware/yamato_pfp.fw
+etc/firmware/yamato_pm4.fw
+
+# Audio
+etc/AdieHWCodecSetting.csv
+etc/AudioBTID.csv
+lib/libhtc_acoustic.so 
+
+# Camera
+lib/libcamera.so
+lib/liboemcamera.so
+lib/libcamera.so
+
+# Compass
+bin/akmd
+
+# Firmware
+etc/firmware/bcm4329.hcd
+etc/firmware/fw_bcmdhd.bin
+etc/firmware/fw_bcmdhd_apsta.bin
+etc/firmware/default.acdb
+
+# Wifi
+etc/wifi/wpa_supplicant_overlay.conf
+
+# Radio log
+bin/parse_radio_log 
+
+# RIL
+lib/libhtc_ril.so
+lib/libril.so

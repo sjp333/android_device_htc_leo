@@ -19,30 +19,18 @@
 # definition file).
 #
 
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
+# inherit from qsd8k-common
+-include device/htc/qsd8k-common/BoardConfigCommon.mk
 
 # general 
 USE_CAMERA_STUB := false
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/leo/include
-
-# Board/CPU
-TARGET_NO_BOOTLOADER := true
+# Board
 BOARD_VENDOR := htc
 TARGET_BOOTLOADER_BOARD_NAME := htcleo
-TARGET_BOARD_PLATFORM := qsd8k
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := scorpion
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_NEEDS_NON_PIE_SUPPORT := true
 TARGET_DISABLE_ARM_PIE := true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/leo
@@ -51,23 +39,7 @@ BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x11800000
 BOARD_KERNEL_NEW_PPPOX := true
 
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/leo/bluetooth/vnd_qsd8k.txt
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/leo/bluetooth/include
-
 # Display
-BOARD_EGL_CFG := device/htc/leo/configs/egl.cfg
-USE_OPENGL_RENDERER := true
-BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-TARGET_DISABLE_TRIPLE_BUFFERING := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
-TARGET_NO_HW_VSYNC := true
-COMMON_GLOBAL_CFLAGS += -DTARGET_8x50
-TARGET_FORCE_SCREENSHOT_CPU_PATH := true
-TARGET_USES_ION := true
 HWUI_COMPILE_FOR_PERF := true
 
 #Bottanimation
@@ -76,38 +48,17 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 TARGET_BOOTANIMATION_HALF_RES := true
 
-# Webkit
-TARGET_FORCE_CPU_UPLOAD := true
-ENABLE_WEBGL := true
-
 # Camera/Media
 TARGET_USES_SUBMIT_ONE_INPUT_BUFFER := true
 TARGET_NEEDS_PRELINK_SUPPORT := true
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_PMEM_ADSP := true
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
-
-# Wifi bcmdhd config
-WIFI_BAND := 802_11_ABG
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE := bcmdhd
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_MODULE_NAME := bcmdhd
 
 # Audio
 AUDIO_FEATURE_ENABLED_INCALL_MUSIC := false
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := false
-
-# Compass/Accelerometer
-BOARD_VENDOR_USE_AKMD := akm8973
 
 # GPS
 BOARD_USES_GPSSHIM := true

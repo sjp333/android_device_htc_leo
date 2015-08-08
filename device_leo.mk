@@ -22,14 +22,13 @@ PRODUCT_PACKAGES += \
 	lights.htcleo
 
 # Ramdisk
-PRODUCT_COPY_FILES += \
-	device/htc/leo/ramdisk/logo.rle:root/logo.rle \
-	device/htc/leo/ramdisk/fstab.htcleo:root/fstab.htcleo \
-	device/htc/leo/ramdisk/init.rc:root/init.rc \
-	device/htc/leo/ramdisk/init.htcleo.rc:root/init.htcleo.rc \
-	device/htc/leo/ramdisk/init.htcleo.usb.rc:root/init.htcleo.usb.rc \
-	device/htc/leo/ramdisk/init.power.rc:root/init.power.rc \
-	device/htc/leo/ramdisk/ueventd.htcleo.rc:root/ueventd.htcleo.rc
+PRODUCT_PACKAGES += \
+	logo.rle \
+	fstab.htcleo \
+	init.htcleo.rc \
+	init.htcleo.usb.rc \
+	init.power.rc \
+	ueventd.htcleo.rc
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -65,28 +64,6 @@ PRODUCT_COPY_FILES += \
 	device/htc/leo/configs/media_profiles.xml:system/etc/media_profiles.xml \
 	device/htc/leo/configs/audio_policy.conf:system/etc/audio_policy.conf
 
-# Audio
-PRODUCT_PACKAGES += \
-	audio.usb.default \
-	audio.a2dp.default \
-	audio.primary.qsd8k \
-	audio_policy.qsd8k
-
-# Camera
-PRODUCT_PACKAGES += \
-	camera.qsd8k
-
-# Display
-PRODUCT_PACKAGES += \
-	copybit.qsd8k \
-	gralloc.qsd8k \
-	hwcomposer.qsd8k \
-	memtrack.qsd8k
-
-# Omx
-# PRODUCT_PACKAGES += \
-#	libOmxCore \
-#	libstagefrighthw
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -105,8 +82,7 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-	power.qsd8k \
-	com.android.future.usb.accessory
+	power.htcleo
 
 # Additional Propreties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -133,24 +109,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	config.disable_atlas=true \
 	windowsmgr.max_events_per_sec=120 \
 	ro.serialno=0123456789ABCDEF \
-	debug.sf.hw=1 \
-	debug.sf.no_hw_vsync=1 \
-	debug.composition.type=mdp \
-	ro.zygote.disable_gl_preload=true \
 	camera2.portability.force_api=1 \
-	debug.gr.numframebuffers=2 \
 	ro.setupwizard.enable_bypass=1 \
 	ro.zram.default=1 \
 	persist.sys.silent=1 \
 	ro.config.max_starting_bg=8 \
 	ro.sys.fw.bg_apps_limit=16 \
-	ro.config.low_ram=true \
 	persist.sys.force_highendgfx=true \
 	audio.offload.disable=1 \
 	power.saving.mode=1
-
-# Default heap settings for 512mb device
-include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -161,11 +128,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-filter=balanced \
 	dalvik.vm.dex2oat-flags=--no-watch-dog \
 	dalvik.vm.image-dex2oat-filter=speed
-
-# Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=120
 
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -188,11 +150,5 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-#PRODUCT_COPY_FILES += \
-#	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-#	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-#	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-#	frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
-
-# Proprietary
-$(call inherit-product, device/htc/leo/proprietary.mk)
+# Common qsd8k stuff
+$(call inherit-product, device/htc/qsd8k-common/qsd8k.mk)
