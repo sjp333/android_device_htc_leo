@@ -18,7 +18,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from leo device
-$(call inherit-product, device/htc/leo/leo_device.mk)
+$(call inherit-product, device/htc/leo/device_leo.mk)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_DEVICE := leo
