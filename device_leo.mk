@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/htc/leo/overlay
 
@@ -152,3 +151,6 @@ PRODUCT_COPY_FILES += \
 
 # Common qsd8k stuff
 $(call inherit-product, device/htc/qsd8k-common/qsd8k.mk)
+
+# Get non-open-source specific aspects
+$(call inherit-product-if-exists, vendor/htc/leo/leo-vendor.mk)
