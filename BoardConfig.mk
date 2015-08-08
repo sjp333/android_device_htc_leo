@@ -104,5 +104,5 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 
 # Recovery
-TARGET_RECOVERY_FSTAB = device/htc/leo/ramdisk/fstab.htcleo
+TARGET_RECOVERY_FSTAB = device/htc/leo/rootdir/etc/fstab.htcleo
 RECOVERY_FSTAB_VERSION := 2
